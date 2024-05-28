@@ -7,8 +7,8 @@ tg.ready();
 
 
 
-user=tg.initDataUnsafe?.user.name;
-queryId=tg.initDataUnsafe?.query_id;
+user=tg.initData.user;
+queryId=tg.initDataUnsafe?.name;
 /**us=
  * Setup
  */
