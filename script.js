@@ -10,7 +10,10 @@ tg.ready();
 user=tg.initData.username;
 queryId=tg.initDataUnsafe?.username;
 const data={user:queryId,q:user};
-tg.sendData(JSON.stringify(data));
+try {
+
+tg.sendData(JSON.stringify(data));}
+catch(e) {window.alert(`Failed  ${e}`);}
 /**us=
  * Setup
  */
