@@ -1,9 +1,6 @@
-import {  useEffect } from "react";
+
 const tg = window.Telegram.WebApp;
-useEffect(() => {
-    tg.ready();
-    tg.expand();
-});
+
 
 
 
