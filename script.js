@@ -2,12 +2,11 @@ const tg = window.Telegram.WebApp;
 
 let user;
 let queryId;
-tg.ready().then(() => {
-    // Этот код выполнится после того, как tg будет готов
+tg.ready();
     tg.expand();
 
 
-});
+
 user=tg.initDataUnsafe?.user;
 queryId=tg.initDataUnsafe?.query_id;
 /**us=
