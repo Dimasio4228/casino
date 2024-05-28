@@ -1,8 +1,15 @@
 const tg = window.Telegram.WebApp;
-tg.ready();
-tg.expand();
-const user=tg.initDataUnsafe?.user;
-const    queryId=tg.initDataUnsafe?.query_id;
+
+let user;
+let queryId;
+tg.ready().then(() => {
+    // Этот код выполнится после того, как tg будет готов
+    tg.expand();
+      user=tg.initDataUnsafe?.user;
+         queryId=tg.initDataUnsafe?.query_id;
+
+});
+
 /**us=
  * Setup
  */
