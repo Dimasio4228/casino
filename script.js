@@ -97,7 +97,7 @@ function rollAll() {
         .then(deltas => {
             // add up indexes
             deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta) % num_icons);
-            // debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
+             debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
 
             // Win conditions
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
