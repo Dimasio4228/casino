@@ -13,6 +13,28 @@
 html, body {
     height: 100%;
 }
+.hint{
+    color: var(--tg-theme-hint-color);
+}
+
+.link{
+    color: var(--tg-theme-link-color);
+}
+
+.button{
+    background: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    font-size: 18px;
+}
+
+.button:not(:last-child){
+    margin-bottom: 20px
+}
+
+#usercard{
+    text-align: center;
+}
 #spin-button {
     display: block;
     margin: 20px auto 0;
