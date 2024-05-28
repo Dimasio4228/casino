@@ -80,7 +80,7 @@ const roll = (reel, offset = 0, target = null) => {
  * Roll all reels, when promise resolves roll again
  */
 function rollAll() {
-    debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
+    debugEl.textContent =   'No user data';
     const reelsList = document.querySelectorAll('.slots > .reel');
 
     // rig the outcome for every 3rd roll, if targets is set to null, the outcome will not get rigged by the roll function
