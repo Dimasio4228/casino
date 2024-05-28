@@ -1,7 +1,11 @@
+import {  useEffect } from "react";
+const tg = window.Telegram.WebApp;
+useEffect(() => {
+    tg.ready();
+    tg.expand();
+});
 
-/**
- * Setup
- */
+
 const debugEl = document.getElementById('debug'),
 // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
     iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "melon"],
@@ -77,8 +81,8 @@ function rollAll() {
     const targets = window.timesRolled && window.timesRolled % 2 ? [6, 6, 6] : null;
     if (!window.timesRolled) window.timesRolled = 0;
     window.timesRolled++;
-
-   // debugEl.textContent = targets ? 'rolling (Rigged!) ...' : 'rolling...';
+    const user = tg.initDataUnsafe?.user;
+    debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
 
     Promise
 
