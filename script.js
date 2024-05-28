@@ -88,7 +88,7 @@ function rollAll() {
     if (!window.timesRolled) window.timesRolled = 0;
     window.timesRolled++;
 
-    debugEl.textContent = user ? `User name: ${user.name}  ` : `No user data Query ${queryId}`;
+    debugEl.textContent = user ? `User name: ${queryId}  ` : `No user data Query ${queryId}`;
 
     Promise
 
