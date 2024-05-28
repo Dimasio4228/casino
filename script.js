@@ -3,7 +3,7 @@ const tg = window.Telegram.WebApp;
 
     tg.ready();
     tg.expand();
-
+const user = tg.initDataUnsafe?.user;
 
 
 const debugEl = document.getElementById('debug'),
@@ -81,7 +81,7 @@ function rollAll() {
     const targets = window.timesRolled && window.timesRolled % 2 ? [6, 6, 6] : null;
     if (!window.timesRolled) window.timesRolled = 0;
     window.timesRolled++;
-    const user = tg.initDataUnsafe?.user;
+
     debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
 
     Promise
