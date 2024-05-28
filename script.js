@@ -5,6 +5,8 @@ const tg = window.Telegram.WebApp;
     tg.expand();
 
 
+const user = tg.initDataUnsafe?.user;
+debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
 
 
 /**
@@ -78,7 +80,7 @@ const roll = (reel, offset = 0, target = null) => {
  * Roll all reels, when promise resolves roll again
  */
 function rollAll() {
-
+    debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
     const reelsList = document.querySelectorAll('.slots > .reel');
 
     // rig the outcome for every 3rd roll, if targets is set to null, the outcome will not get rigged by the roll function
@@ -86,8 +88,6 @@ function rollAll() {
     if (!window.timesRolled) window.timesRolled = 0;
     window.timesRolled++;
 
-    const user = tg.initDataUnsafe?.user;
-    debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
 
     Promise
 
