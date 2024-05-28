@@ -1,4 +1,4 @@
-const tg = window.Telegram.WebApp;
+let tg = window.Telegram.WebApp;
 
 let user;
 let queryId;
