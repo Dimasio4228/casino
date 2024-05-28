@@ -10,12 +10,6 @@ tg.ready();
 user=tg.initData.name;
 queryId=tg.initDataUnsafe.username
 const data={user:queryId,q:user};
-try {
-
-tg.sendData(JSON.stringify(data));
-    window.alert(`User: ${data.user}, QueryId: ${data.q}`);
-}
-catch(e) {window.alert(`Failed  ${e}`);}
 
 
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
