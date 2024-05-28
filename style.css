@@ -1,5 +1,4 @@
 .debug {
-    display: none;
     position: fixed;
     top: 4px;
     left: 50%;
@@ -10,30 +9,7 @@
     font-family: monospace;
     font-size: 1.6rem;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#spin-button {
-    display: block;
-    margin: 20px auto 0;
-    background: linear-gradient(goldenrod, darkgoldenrod 100%);
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 30px;
-    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
-    text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
-    cursor: pointer;
-}
 
-#spin-button:hover {
-    background: linear-gradient(darkgoldenrod, goldenrod);
-}
 html, body {
     height: 100%;
 }
@@ -90,16 +66,7 @@ body {
     height: 2px;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.slots::before {
-    display: none;
-    left: 0;
-    transform: translate(-200%, -50%);
-}
-.slots::after {
-    display: none;
-    right: 0;
-    transform: translate(200%, -50%);
-}
+
 @-webkit-keyframes win1 {
     0% {
         background: linear-gradient(45deg, orange 0%, yellow 100%);
@@ -155,7 +122,7 @@ body {
     border: 1px solid goldenrod;
     border-radius: 3px;
     overflow: hidden;
-    background-image: url('icons.jpg');
+    background-image: url(https://downloader.disk.yandex.ru/preview/b373524efd3c954d580e442d2e5acbf6f0a9e889f7193302401973b03df64345/6655e831/jVHVo59TaJinwvPYGynwDTtRTmYIihzL1idqheweQur6QMLJl-gnFJGRBlLLz-U1e85B93gRgVD6-mIe26blHg%3D%3D?uid=0&filename=Icons.webp&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048);
     background-position: 0 0;
     background-size: cover;
     background-repeat: repeat-y;
