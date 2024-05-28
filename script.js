@@ -5,8 +5,7 @@ const tg = window.Telegram.WebApp;
     tg.expand();
 
 
-const user = tg.initDataUnsafe?.user;
-debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
+
 
 
 /**
