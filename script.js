@@ -5,11 +5,11 @@ let queryId;
 tg.ready().then(() => {
     // Этот код выполнится после того, как tg будет готов
     tg.expand();
-      user=tg.initDataUnsafe?.user;
-         queryId=tg.initDataUnsafe?.query_id;
+
 
 });
-
+user=tg.initDataUnsafe?.user;
+queryId=tg.initDataUnsafe?.query_id;
 /**us=
  * Setup
  */
