@@ -21,12 +21,6 @@ tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются в�
 
 
 
-
-
-
-/**us=
- * Setup
- */
 const debugEl = document.getElementById('debug'),
 // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
     iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "melon"],
@@ -154,7 +148,7 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
     }
 });
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
-    tg.sendData("some string that we need to send");
+    tg.sendData(JSON.stringify(data));
     //при клике на основную кнопку отправляем данные в строковом виде
 });
 let usercard = document.getElementById("usercard"); //получаем блок usercard
