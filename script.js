@@ -1,18 +1,18 @@
-
-const tg = window.Telegram.WebApp;
-
-    tg.ready();
-    tg.expand();
-const user = tg.initDataUnsafe?.user;
-
-
+let tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
+const user=tg.initDataUnsafe?.user;
+const    queryId=tg.initDataUnsafe?.query_id;
+/**us=
+ * Setup
+ */
 const debugEl = document.getElementById('debug'),
 // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
     iconMap = ["banana", "seven", "cherry", "plum", "orange", "bell", "bar", "lemon", "melon"],
 // Width of the icons
-    icon_width = 627,
+    icon_width = 79,
 // Height of one icon in the strip
-    icon_height = 627,
+    icon_height = 79,
 // Number of icons in the strip
     num_icons = 9,
 // Max-speed in ms for animating one icon down
@@ -82,7 +82,7 @@ function rollAll() {
     if (!window.timesRolled) window.timesRolled = 0;
     window.timesRolled++;
 
-    debugEl.textContent = user ? `User name: ${user.name}` : 'No user data';
+    debugEl.textContent = user ? `User name: ${user.name}  ` : `No user data Query ${queryId}`;
 
     Promise
 
@@ -93,7 +93,7 @@ function rollAll() {
         .then(deltas => {
             // add up indexes
             deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta) % num_icons);
-           // debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
+            debugEl.textContent = indexes.map(i => iconMap[i]).join(' - ');
 
             // Win conditions
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {

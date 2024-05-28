@@ -13,43 +13,10 @@
 html, body {
     height: 100%;
 }
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, grey 0%, lightgray 100%);
-}
-.background-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: gold;
-    z-index: -1;
-}
-.slots {
-    position: relative;
-    width: 276.5px;
-    height: 237px;
-    display: flex;
-    justify-content: space-between;
-    padding: 23.7px;
-    background: linear-gradient(0deg, whitesmoke, goldenrod);
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
-
-    border-right: 1px solid goldenrod;
-
-    border-bottom: 1px solid goldenrod;
-    box-shadow:  0px -1px 0px goldenrod;
-
-}
 #spin-button {
     display: block;
     margin: 20px auto 0;
-    background: linear-gradient(goldenrod, darkgoldenrod 75%);
+    background: linear-gradient(goldenrod, darkgoldenrod 100%);
     border: none;
     color: black;
     padding: 15px 32px;
@@ -65,24 +32,27 @@ body {
 #spin-button:hover {
     background: linear-gradient(darkgoldenrod, goldenrod);
 }
-@keyframes gradient {
-    0% {
-        background-position: 33% 33%;
-    }
-    50% {
-        background-position: 50% 50%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, grey 0%, lightgray 100%);
 }
-.slots::before, .slots::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 10px;
-    height: 2px;
-    background-color: rgba(0, 0, 0, 0.5);
+
+.slots {
+    position: relative;
+    width: 276.5px;
+    height: 237px;
+    display: flex;
+    justify-content: space-between;
+    padding: 23.7px;
+    background: linear-gradient(45deg, palegoldenrod 0%, goldenrod 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    border-right: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
 }
 
 @-webkit-keyframes win1 {
@@ -91,7 +61,7 @@ body {
         box-shadow: 0 0 80px orange;
     }
     100% {
-        background: linear-gradient(45deg, grey 0%, goldenrod 100%);
+        background: linear-gradient(45deg, grey 0%, lightgrey 100%);
         box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
     }
 }
@@ -101,23 +71,23 @@ body {
         box-shadow: 0 0 80px orange;
     }
     100% {
-        background: linear-gradient(45deg, grey 0%, goldenrod 100%);
+        background: linear-gradient(45deg, grey 0%, lightgrey 100%);
         box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
     }
 }
 @-webkit-keyframes win2 {
     0% {
-        background: linear-gradient(45deg, lightblue 0%, goldenrod 100%);
+        background: linear-gradient(45deg, lightblue 0%, lightgreen 100%);
         box-shadow: 0 0 80px lightgreen;
     }
     100% {
-        background: linear-gradient(45deg, grey 0%, goldenrod 100%);
+        background: linear-gradient(45deg, grey 0%, lightgrey 100%);
         box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
     }
 }
 @keyframes win2 {
     0% {
-        background: linear-gradient(45deg, lightblue 0%, goldenrod 100%);
+        background: linear-gradient(45deg, lightblue 0%, lightgreen 100%);
         box-shadow: 0 0 80px lightgreen;
     }
     100% {
@@ -137,13 +107,13 @@ body {
     position: relative;
     width: 79px;
     height: 237px;
-    border: 1px solid goldenrod;
+    border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
     overflow: hidden;
-    background-image: url('icons.jpg');
+    background-image: url('Icons.webp');
     background-position: 0 0;
-    background-size: cover;
     background-repeat: repeat-y;
+    background-size: 100% auto;
 }
 .slots .reel::after {
     content: "";
