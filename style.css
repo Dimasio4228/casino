@@ -155,7 +155,7 @@ body {
     border: 1px solid goldenrod;
     border-radius: 3px;
     overflow: hidden;
-    background-image: url(https://downloader.disk.yandex.ru/preview/b373524efd3c954d580e442d2e5acbf6f0a9e889f7193302401973b03df64345/6655e831/jVHVo59TaJinwvPYGynwDTtRTmYIihzL1idqheweQur6QMLJl-gnFJGRBlLLz-U1e85B93gRgVD6-mIe26blHg%3D%3D?uid=0&filename=Icons.webp&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048);
+    background-image: url('icons.jpg');
     background-position: 0 0;
     background-size: cover;
     background-repeat: repeat-y;
