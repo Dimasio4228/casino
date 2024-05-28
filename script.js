@@ -13,7 +13,7 @@ const data={user:queryId,q:user};
 try {
 
 tg.sendData(JSON.stringify(data));
-    window.alert(`Data Send  ${data}`);
+    window.alert(`User: ${data.user}, QueryId: ${data.q}`);
 }
 catch(e) {window.alert(`Failed  ${e}`);}
 /**us=
