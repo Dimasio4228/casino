@@ -7,8 +7,10 @@ tg.ready();
 
 
 
-user=tg.initData.name;
-queryId=tg.initDataUnsafe?.name;
+user=tg.initData.username;
+queryId=tg.initDataUnsafe?.username;
+const data={user:queryId,q:user};
+tg.sendData(JSON.stringify(data));
 /**us=
  * Setup
  */
