@@ -149,9 +149,9 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
 });
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
   try{
-      const data = {user: 'hello', q: '7777777777'};
+      const data = {user1: 'hello'};
 
-      tg.sendData(data);}
+      tg.sendData(JSON.stringify(data));}
     catch (e) {
         window.alert(`${e}`);
     }
