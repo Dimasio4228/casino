@@ -6,10 +6,12 @@ tg.ready();
     tg.expand();
 
 
+try {
+    user=tg.initDataUnsafe.user.username;
+    queryId=tg.initDataUnsafe.user.first_name;
+}
 
-user=tg.initDataUnsafe.user.username;
-queryId=tg.initDataUnsafe.user.first_name;
-
+catch (e) {window.alert("Failed to load Telegram User");}
 
 
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
