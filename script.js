@@ -96,9 +96,10 @@ function rollAll() {
     const targets = window.timesRolled && window.timesRolled % 2 ? [6, 6, 6] : null;
     if (!window.timesRolled) window.timesRolled = 0;
     window.timesRolled++;
-
+try {
     debugEl.textContent = user ? `User name: ${user} Hello ${queryId} ` : `Hello ${queryId}`;
-
+}
+catch (e) {window.alert(e)}
     Promise
 
         // Activate each reel, must convert NodeList to Array for this with spread operator
@@ -165,14 +166,16 @@ Telegram.WebApp.onEvent('mainButtonClicked', function(){
     //при клике на основную кнопку отправляем данные в строковом виде
 });
 let usercard = document.getElementById("usercard"); //получаем блок usercard
-
-let profName = document.createElement('p'); //создаем параграф
-profName.innerText = `${tg.initDataUnsafe.user.first_name}
+try {
+    let profName = document.createElement('p'); //создаем параграф
+    profName.innerText = `${tg.initDataUnsafe.user.first_name}
 ${tg.initDataUnsafe.user.last_name}
 ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
 //выдем имя, "фамилию", через тире username и код языка
-usercard.appendChild(profName); //добавляем
+    usercard.appendChild(profName); //добавляем
 
-let userid = document.createElement('p'); //создаем еще параграф
-userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-usercard.appendChild(userid); //добавляем
+    let userid = document.createElement('p'); //создаем еще параграф
+    userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
+    usercard.appendChild(userid); //добавляем
+}
+catch (e) {window.alert(e)}
