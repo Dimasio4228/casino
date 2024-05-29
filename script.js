@@ -9,7 +9,7 @@ tg.ready();
 
 user=tg.initData.name;
 queryId=tg.initDataUnsafe.username
-const data={user:queryId,q:user};
+const data={user:'hello',q:'7777777777'};
 
 
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
