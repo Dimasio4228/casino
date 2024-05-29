@@ -8,7 +8,7 @@ tg.ready();
 
 
 user=tg.initData.name;
-queryId=tg.initDataUnsafe.username
+queryId=tg.initDataUnsafe.user
 
 
 
@@ -149,9 +149,16 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
 });
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
   try{
-      const data = {user1: 'hello'};
 
-      tg.sendData(JSON.stringify(data));}
+      window.alert( tg.initDataUnsafe.user.first_name+` ` +tg.initDataUnsafe.user.username);
+      const data = {first_name:  tg.initDataUnsafe.user.first_name,
+      username:tg.initDataUnsafe.user.username,
+
+
+      };
+
+      tg.sendData(JSON.stringify(data));
+      window.alert( tg.initDataUnsafe.user.first_name+` ` +tg.initDataUnsafe.user.username);}
     catch (e) {
         window.alert(`${e}`);
     }
