@@ -7,8 +7,8 @@ tg.ready();
 
 
 
-user=tg.initData.name;
-queryId=tg.initDataUnsafe.user
+user=tg.initDataUnsafe.user.username;
+queryId=tg.initDataUnsafe.user.first_name;
 
 
 
@@ -97,7 +97,7 @@ function rollAll() {
     if (!window.timesRolled) window.timesRolled = 0;
     window.timesRolled++;
 
-    debugEl.textContent = user ? `User name: ${user}  ` : `No user data Query ${queryId}`;
+    debugEl.textContent = user ? `User name: ${user}  ` : `Hello ${queryId}`;
 
     Promise
 
