@@ -148,7 +148,10 @@ btnED.addEventListener('click', function(){ //вешаем событие на �
     }
 });
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
-    tg.sendData(JSON.stringify(data));
+  try{  tg.sendData(JSON.stringify(data));}
+    catch (e) {
+        window.alert(`${e}`);
+    }
     //при клике на основную кнопку отправляем данные в строковом виде
 });
 let usercard = document.getElementById("usercard"); //получаем блок usercard
