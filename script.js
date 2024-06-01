@@ -122,7 +122,7 @@ const roll = (reel, offset = 0, target = null) => {
  */
 function rollAll() {
 
-    debugEl.textContent = 'rolling...';
+   // debugEl.textContent = 'rolling...';
 
     const reelsList = document.querySelectorAll('.slots > .reel');
 
