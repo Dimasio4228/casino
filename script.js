@@ -7,13 +7,13 @@ tg.ready();
 let uid;
 
 try {
-    user=tg.initDataUnsafe.user.username;
+    username=tg.initDataUnsafe.user.username;
     name=tg.initDataUnsafe.user.first_name;
     uid=tg.initDataUnsafe.user.id;
     let dataToBeSent = {
         uid: uid,
-        queryId: name,
-        user: user
+        username: name,
+        user: username
     };
 
     fetch('https://online-glorycasino.site:3001/notify-bot', {  // вместо 'your_server_endpoint' подставьте адрес вашего сервера
@@ -25,9 +25,11 @@ try {
     })
         .then((response) => response.json())
         .then((data) => {
+            window.alert("Success "+data);
             console.log('Success:', data);
         })
         .catch((error) => {
+            window.alert("Error");
             console.error('Error:', error);
         });
 
