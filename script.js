@@ -141,6 +141,7 @@ function rollAll() {
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
                 const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
                 balance += 500;
+               if(indexes[0] == indexes[1]==indexes[2]){balance += 500;}
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
                 balanceEl.innerText = balance;
