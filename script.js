@@ -25,7 +25,7 @@ try {
     })
         .then((response) => response.json())
         .then((data) => {
-            window.alert("Success "+data);
+            window.alert("Success "+data.response);
             console.log('Success:', data);
         })
         .catch((error) => {
@@ -135,7 +135,7 @@ function rollAll() {
         .then((deltas) => {
             // add up indexes
             deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta)%num_icons);
-            debugEl.textContent = indexes.map((i) => iconMap[i]).join(' = ');
+          //  debugEl.textContent = indexes.map((i) => iconMap[i]).join(' = ');
 
             // Win conditions
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
