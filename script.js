@@ -160,18 +160,21 @@ function rollAll() {
                 });
 
                 Promise.all(promises).then(() => {
-                    balance += 500;
+                    setTimeout(function() {
+                        balance += 500;
 
-                    dataToBeSent = {
-                        uid: uid,
-                        username: name,
-                        user: username,
-                        balance: balance
-                    };
-                    sendData(dataToBeSent,
-                        data => console.log('Success:', data),
-                        error => console.log('Error:', error)
-                    );
+                        dataToBeSent = {
+                            uid: uid,
+                            username: name,
+                            user: username,
+                            balance: balance
+                        };
+                        sendData(dataToBeSent,
+                            data => console.log('Success:', data),
+                            error => console.log('Error:', error)
+                        );
+                    }, 1000);
+
                     if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
                         dataToBeSent = {
                             uid: uid,
