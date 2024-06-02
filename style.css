@@ -60,7 +60,7 @@ body {
     border-radius: 3px;
 }
 .coin {
-    position: absolute;
+    position: fixed;
     opacity: 0;
     animation: flyAndFade 2s;
 }
