@@ -13,8 +13,11 @@ let dataToBeSent = {
     user: username,
     balance: balance
 };
-window.alert("777 "+dataToBeSent.balance+ " "+dataToBeSent.balance.uid+ " "+dataToBeSent.balance.balance.username+ " "+ +dataToBeSent.balance.balance.user);  ;
-
+try {
+    window.alert("777 " + dataToBeSent.balance + " " + dataToBeSent.balance.uid + " " + dataToBeSent.balance.balance.username + " " + +dataToBeSent.balance.balance.user);
+    ;
+}
+catch(e) {  window.alert(e);}
 sendData(dataToBeSent,
     data => console.log('777:', data),
     error => console.log('Error:', error)
