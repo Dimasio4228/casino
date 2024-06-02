@@ -76,15 +76,11 @@ let previousSpinResult = null;
  * Roll one reel
  */
 const roll = (reel, offset = 0, target = null) => {
-    // Minimum of 2 + the reel offset rounds
     let delta = (offset + 2) * num_icons + Math.round(Math.random() * num_icons);
 
+    // If target is not null, we force the delta to be the target value.
+    if (target !== null) delta = target + num_icons * (2 + Math.round(Math.random()));
 
-      target = (previousSpinResult && reel.id === 'reel2') ? previousSpinResult : null;
-    if (target !== null) {
-        // If target is specified, we correct the delta to achieve the desired result.
-        delta = ((offset + 2) * num_icons) - indexes[reel.id.replace('reel', '')] + target;
-    }
     // Rest of your roll function...
 
     // At the end of the spin (you may need to put this elsewhere depending on your specific implementation)
@@ -142,13 +138,16 @@ let lossCount = 0; // Сч
  */
 function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
+
+    let forcedValue = lossCount >= 3 ? Math.floor(Math.random() * num_icons) : null;
+
     Promise
-        // Activate each reel, must convert NodeList to Array for this with spread operator
+        // Roll each reel, must convert NodeList to Array for this with spread operator.
         .all( [...reelsList].map((reel, i) => {
-            if(lossCount >= 2 && i !== 0) { // for 2nd and 3rd wheel after 3 losses
-                return roll(reel, i, i === 1 ? indexes[0] : null);
-            }
-            return roll(reel, i);
+            // For first and second reel, we force a certain value when there are 3 losses in a row.
+            if (i <= 1 && forcedValue !== null) return roll(reel, i, forcedValue);
+            // For the third reel, we let randomness do its thing.
+            else return roll(reel, i);
         }))
         // When all reels done animating (all promises solve)
         .then((deltas) => {
@@ -168,30 +167,32 @@ function rollAll() {
                         createCoin(slot);
                     }
                 });
-
+                if(indexes[0] == indexes[1]&&indexes[1]==indexes[2])
+                {balance += 500;
+                    dataToBeSent = {
+                        uid: uid,
+                        username: name,
+                        user: username,
+                        balance: balance
+                    };
+                    sendData(dataToBeSent,
+                        data => console.log('Success:', data),
+                        error => console.log('Error:', error)
+                    );}
+                  else {
                     balance += 500;
 
-                dataToBeSent = {
-                    uid: uid,
-                    username: name,
-                    user: username,
-                    balance: balance
-                };
-                sendData(dataToBeSent,
-                    data => console.log('Success:', data),
-                    error => console.log('Error:', error)
-                );
-               if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
-                     dataToBeSent = {
-                       uid: uid,
-                       username: name,
-                       user: username,
-                       balance: balance
-                   };
-                   sendData(dataToBeSent,
-                       data => console.log('Success:', data),
-                       error => console.log('Error:', error)
-                   );}
+                    dataToBeSent = {
+                        uid: uid,
+                        username: name,
+                        user: username,
+                        balance: balance
+                    };
+                    sendData(dataToBeSent,
+                        data => console.log('Success:', data),
+                        error => console.log('Error:', error)
+                    );
+                }
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
                 balanceEl.innerText = balance;
