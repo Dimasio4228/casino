@@ -13,13 +13,7 @@ let dataToBeSent = {
     user: username,
     balance: balance || 1000
 };
-try {
-    window.alert("bal " + dataToBeSent.balance  );
-    window.alert("uid "  +dataToBeSent.uid );
-    window.alert("username "  +dataToBeSent.username );
-    window.alert("name "  +dataToBeSent.balance.name );
-}
-catch(e) {  window.alert(e);}
+
 sendData(dataToBeSent,
     data => console.log('777:', data),
     error => console.log('Error:', error)
@@ -37,8 +31,9 @@ sendData(dataToBeSent,
         .then((data) => {
            // window.alert("Success "+data.balance);
             if(data.balance);
-            {  balance=data.balance;}
-            console.log('Success:', data);
+            {  balance=data.balance;
+                window.alert("bal " + data.balance );}
+           // console.log('Success:', data);
         })
         .catch((error) => {
             console.error('Error:', error);
