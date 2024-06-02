@@ -140,9 +140,12 @@ let lossCount = 0; // Сч
 function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
     Promise
+        // Activate each reel, must convert NodeList to Array for this with spread operator
         .all( [...reelsList].map((reel, i) => roll(reel, i, lossCount >= 3 ? 0 : null)) )
+
+        // When all reels done animating (all promises solve)
         .then((deltas) => {
-            // ...
+            // add up indexes
             deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta)%num_icons);
           //  debugEl.textContent = indexes.map((i) => iconMap[i]).join(' = ');
 
@@ -191,7 +194,7 @@ function rollAll() {
             else {
                 //window.alert("Balance3 "+balance);
                 balance -= 100;
-                lossCount++;
+                lossCount += 1;
                 dataToBeSent = {
                     uid: uid,
                     username: name,
