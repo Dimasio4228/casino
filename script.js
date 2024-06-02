@@ -146,11 +146,23 @@ function rollAll() {
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
                 const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
                 balance += 500;
+                dataToBeSent = {
+                    uid: uid,
+                    username: name,
+                    user: username,
+                    balance: balance
+                };
                 sendData(dataToBeSent,
                     data => console.log('Success:', data),
                     error => console.log('Error:', error)
                 );
                if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
+                     dataToBeSent = {
+                       uid: uid,
+                       username: name,
+                       user: username,
+                       balance: balance
+                   };
                    sendData(dataToBeSent,
                        data => console.log('Success:', data),
                        error => console.log('Error:', error)
@@ -163,6 +175,12 @@ function rollAll() {
             }
             else {
                 balance -= 100;
+                dataToBeSent = {
+                    uid: uid,
+                    username: name,
+                    user: username,
+                    balance: balance
+                };
                 sendData(dataToBeSent,
                     data => console.log('Success:', data),
                     error => console.log('Error:', error)
