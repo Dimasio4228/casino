@@ -132,16 +132,7 @@ const roll = (reel, offset = 0, target = null) => {
     });
 };
 
-async function createCoinsAndProceed() {
-    for (const slot of slots) {
-        // Создать 10 монет
-        for (let i = 0; i < 13; i++) {
-            await createCoin(slot);
-        }
-    }
 
-    // Другой код, который должен быть выполнен после того, как все монеты созданы
-}
 function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
     Promise
@@ -159,37 +150,48 @@ function rollAll() {
                 const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
 
                 const slots = document.querySelectorAll('.slots > .reel');
+                let promises = [];
 
-                createCoinsAndProceed();
+                slots.forEach(slot => {
+                    // Создать 10 монет
+                    for (let i = 0; i < 13; i++) {
+                        promises.push(createCoin(slot));
+                    }
+                });
+
+                Promise.all(promises).then(() => {
                     balance += 500;
 
-                dataToBeSent = {
-                    uid: uid,
-                    username: name,
-                    user: username,
-                    balance: balance
-                };
-                sendData(dataToBeSent,
-                    data => console.log('Success:', data),
-                    error => console.log('Error:', error)
-                );
-               if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
-                     dataToBeSent = {
-                       uid: uid,
-                       username: name,
-                       user: username,
-                       balance: balance
-                   };
-                   sendData(dataToBeSent,
-                       data => console.log('Success:', data),
-                       error => console.log('Error:', error)
-                   );}
-                winEl.classList.add('show');
-                setTimeout(() => winEl.classList.remove('show'), 2000);
-                balanceEl.innerText = balance;
-                document.querySelector(".slots").classList.add(winCls);
-                setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2000)
-            }
+                    dataToBeSent = {
+                        uid: uid,
+                        username: name,
+                        user: username,
+                        balance: balance
+                    };
+                    sendData(dataToBeSent,
+                        data => console.log('Success:', data),
+                        error => console.log('Error:', error)
+                    );
+                    if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
+                        dataToBeSent = {
+                            uid: uid,
+                            username: name,
+                            user: username,
+                            balance: balance
+                        };
+                        sendData(dataToBeSent,
+                            data => console.log('Success:', data),
+                            error => console.log('Error:', error)
+                        );}
+                    winEl.classList.add('show');
+                    setTimeout(() => winEl.classList.remove('show'), 2000);
+                    balanceEl.innerText = balance;
+                    document.querySelector(".slots").classList.add(winCls);
+                    setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2000)
+
+                });
+
+                     }
             else {
                 //window.alert("Balance3 "+balance);
                 balance -= 100;
