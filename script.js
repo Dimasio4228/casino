@@ -132,7 +132,11 @@ const roll = (reel, offset = 0, target = null) => {
     });
 };
 
-
+/**
+ * Roll all reels, when promise resolve
+/**
+ * Roll all reels, when promise resolves roll again
+ */
 function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
     Promise
@@ -150,51 +154,47 @@ function rollAll() {
                 const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
 
                 const slots = document.querySelectorAll('.slots > .reel');
-                let promises = [];
 
                 slots.forEach(slot => {
                     // Создать 10 монет
                     for (let i = 0; i < 13; i++) {
-                        promises.push(createCoin(slot));
+                        createCoin(slot);
                     }
                 });
+                let delayInMilliseconds = 2000; // Здесь установите время, которое должна длиться анимация монет
 
-                Promise.all(promises).then(() => {
-                    setTimeout(function() {
-                        balance += 500;
-
-                        dataToBeSent = {
-                            uid: uid,
-                            username: name,
-                            user: username,
-                            balance: balance
-                        };
-                        sendData(dataToBeSent,
-                            data => console.log('Success:', data),
-                            error => console.log('Error:', error)
-                        );
-                    }, 1000);
-
-                    if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
-                        dataToBeSent = {
-                            uid: uid,
-                            username: name,
-                            user: username,
-                            balance: balance
-                        };
-                        sendData(dataToBeSent,
-                            data => console.log('Success:', data),
-                            error => console.log('Error:', error)
-                        );}
-                    winEl.classList.add('show');
-                    setTimeout(() => winEl.classList.remove('show'), 2000);
-                    balanceEl.innerText = balance;
-                    document.querySelector(".slots").classList.add(winCls);
-                    setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2000)
-
+                new Promise((resolve) => {
+                    setTimeout(resolve, delayInMilliseconds);
+                }).then(() => {
+                    balance += 500;
                 });
-
-                     }
+                dataToBeSent = {
+                    uid: uid,
+                    username: name,
+                    user: username,
+                    balance: balance
+                };
+                sendData(dataToBeSent,
+                    data => console.log('Success:', data),
+                    error => console.log('Error:', error)
+                );
+               if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
+                     dataToBeSent = {
+                       uid: uid,
+                       username: name,
+                       user: username,
+                       balance: balance
+                   };
+                   sendData(dataToBeSent,
+                       data => console.log('Success:', data),
+                       error => console.log('Error:', error)
+                   );}
+                winEl.classList.add('show');
+                setTimeout(() => winEl.classList.remove('show'), 2000);
+                balanceEl.innerText = balance;
+                document.querySelector(".slots").classList.add(winCls);
+                setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2000)
+            }
             else {
                 //window.alert("Balance3 "+balance);
                 balance -= 100;
