@@ -161,13 +161,9 @@ function rollAll() {
                         createCoin(slot);
                     }
                 });
-                let delayInMilliseconds = 2000; // Здесь установите время, которое должна длиться анимация монет
 
-                new Promise((resolve) => {
-                    setTimeout(resolve, delayInMilliseconds);
-                }).then(() => {
                     balance += 500;
-                });
+
                 dataToBeSent = {
                     uid: uid,
                     username: name,
