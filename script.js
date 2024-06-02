@@ -11,7 +11,7 @@ let dataToBeSent = {
     uid: uid,
     username: name,
     user: username,
-    balance: balance || 1000
+    balance: balance
 };
 window.alert("Balance1 "+dataToBeSent.balance);
 sendData(dataToBeSent,
