@@ -12,6 +12,10 @@
 
 html, body {
     height: 100%;
+    background-image: url('back.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 #spin-button {
@@ -37,7 +41,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, grey 0%, lightgray 100%);
+
 }
 
 .slots {
@@ -55,7 +59,23 @@ body {
     box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
     border-radius: 3px;
 }
+.coin {
+    position: absolute;
+    opacity: 0;
+    animation: flyAndFade 2s;
+}
 
+/* CSS-анимация */
+@keyframes flyAndFade {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px); /* Управляет высотой полета монет */
+        opacity: 0;
+    }
+}
 @-webkit-keyframes win1 {
     0% {
         background: linear-gradient(45deg, orange 0%, yellow 100%);

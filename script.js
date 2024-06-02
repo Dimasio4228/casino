@@ -4,9 +4,9 @@ let tg = window.Telegram.WebApp;
 tg.ready();
     tg.expand();
 let balance;
-let username=tg.initDataUnsafe.user.username;
-let name=tg.initDataUnsafe.user.first_name;
-let uid=tg.initDataUnsafe.user.id;
+let username=tg.initDataUnsafe?.user.username;
+let name=tg.initDataUnsafe?.user.first_name;
+let uid=tg.initDataUnsafe?.user.id;
 let dataToBeSent = {
     uid: uid,
     username: name,
@@ -202,43 +202,33 @@ function rollAll() {
 
 // Kickoff
 //setTimeout(rollAll, 1000);
+
 const spinButton = document.getElementById('spin-button');
 const btn = document.getElementById('btn');
 // Назначить обработчик события 'click'
-spinButton.addEventListener('click', rollAll);
-btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-    if (tg.MainButton.isVisible){ //если кнопка показана
-        tg.MainButton.hide() //скрываем кнопку
-    }
-    else{ //иначе
-        tg.MainButton.show() //показываем
-    }
-});
-let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-    if (tg.MainButton.isActive){ //если кнопка показана
-        tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-        tg.MainButton.disable() //скрываем кнопку
-    }
-    else{ //иначе
-        tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-        tg.MainButton.enable() //показываем
+spinButton.addEventListener('click', () => {
+    // Spin the reels
+    rollAll();
+    // Create coins
+    for (let i = 0; i < 10; i++) { // создаем 10 монет
+        createCoin();
     }
 });
-Telegram.WebApp.onEvent('mainButtonClicked', function(){
-  try{
+// Функция для создания монет
+function createCoin() {
+    const template = document.getElementById("coin-template");
+    const coin = template.cloneNode(true);
+    coin.id = ""; // сброс ID
+    coin.hidden = false; // делаем видимым
 
-      window.alert( tg.initDataUnsafe.user.first_name+` ` +tg.initDataUnsafe.user.username);
-      const data = {first_name:  tg.initDataUnsafe.user.first_name,
-      username:tg.initDataUnsafe.user.username,
+    // Задаем начальное положение монеты случайным образом. Вы можете заменить эти значения на те, которые вам нужны.
+    coin.style.left = `${Math.random() * window.innerWidth}px`;
+    coin.style.top = `${window.innerHeight}px`;
 
+    document.body.appendChild(coin); // Добавляем новую монету в DOM
 
-      };
-
-      tg.sendData(JSON.stringify(data));
-      window.alert( tg.initDataUnsafe.user.first_name+` ` +tg.initDataUnsafe.user.username);}
-    catch (e) {
-        window.alert(`${e}`);
-    }
-    //при клике на основную кнопку отправляем данные в строковом виде
-});
+    // Удаляем монету из DOM после окончания анимации
+    coin.addEventListener("animationend", () => {
+        coin.remove();
+    });
+}
