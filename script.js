@@ -11,11 +11,13 @@ let dataToBeSent = {
     uid: uid,
     username: name,
     user: username,
-    balance: balance
+    balance: balance || 1000
 };
 try {
-    window.alert("777 " + dataToBeSent.balance + " " + dataToBeSent.balance.uid + " " + dataToBeSent.balance.balance.username + " " + +dataToBeSent.balance.balance.user);
-    ;
+    window.alert("bal " + dataToBeSent.balance  );
+    window.alert("uid "  +dataToBeSent.uid );
+    window.alert("username "  +dataToBeSent.username );
+    window.alert("name "  +dataToBeSent.balance.name );
 }
 catch(e) {  window.alert(e);}
 sendData(dataToBeSent,
