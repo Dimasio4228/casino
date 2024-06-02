@@ -150,6 +150,15 @@ function rollAll() {
             // Win conditions
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
                 const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
+
+                const slots = document.querySelectorAll('.slots > .reel');
+
+                slots.forEach(slot => {
+                    // Создать 10 монет
+                    for (let i = 0; i < 13; i++) {
+                        createCoin(slot);
+                    }
+                });
                 balance += 500;
                 dataToBeSent = {
                     uid: uid,
@@ -210,16 +219,6 @@ spinButton.addEventListener('click', () => {
     // Spin the reels
     rollAll();
 
-    // Получить все элементы слотов
-    const slots = document.querySelectorAll('.slots > .reel');
-
-    // Для каждого слота...
-    slots.forEach(slot => {
-        // Создать 10 монет
-        for (let i = 0; i < 10; i++) {
-            createCoin(slot);
-        }
-    });
 });
 // Функция для создания монет
 function createCoin(slotElement) {
