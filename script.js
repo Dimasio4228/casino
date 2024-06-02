@@ -1,22 +1,27 @@
 let tg = window.Telegram.WebApp;
 
- let user;
- let name;
+
 tg.ready();
     tg.expand();
-let uid;
+let balance;
+let username=tg.initDataUnsafe?.user.username;
+let name=tg.initDataUnsafe?.user.first_name;
+let uid=tg.initDataUnsafe?.user.id;
+let dataToBeSent = {
+    uid: uid,
+    username: name,
+    user: username,
+    balance: balance
+};
 
-try {
-    username=tg.initDataUnsafe.user.username;
-    name=tg.initDataUnsafe.user.first_name;
-    uid=tg.initDataUnsafe.user.id;
-    let dataToBeSent = {
-        uid: uid,
-        username: name,
-        user: username
-    };
+sendData(dataToBeSent,
+    data => console.log('Success:', data),
+    error => console.log('Error:', error)
+);
 
-    fetch('https://online-glorycasino.site:3001/notify-bot', {  // вместо 'your_server_endpoint' подставьте адрес вашего сервера
+
+function sendData(dataToBeSent, onSuccess, onError) {
+    fetch('https://online-glorycasino.site:3001/notify-bot', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -25,20 +30,15 @@ try {
     })
         .then((response) => response.json())
         .then((data) => {
-            window.alert("Success "+data.response);
+            window.alert("Success "+data.balance);
+            if(data.balance);
+            {  balance=data.balance;}
             console.log('Success:', data);
         })
         .catch((error) => {
-            window.alert("Error");
             console.error('Error:', error);
         });
-
-
 }
-
-catch (e) {window.alert("Failed to load Telegram User");}
-
-
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
 
 tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
@@ -46,7 +46,7 @@ tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунд�
 tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 tg.MainButton.show()
 
-let balance = 1000;
+
 const balanceEl = document.getElementById('balance');
 const winEl = document.getElementById('win');
 
@@ -64,7 +64,7 @@ const debugEl = document.getElementById('debug'),
 // Holds icon indexes
     indexes = [0, 0, 0];
 
-
+let previousSpinResult = null;
 /**
  * Roll one reel
  */
@@ -72,10 +72,21 @@ const roll = (reel, offset = 0, target = null) => {
     // Minimum of 2 + the reel offset rounds
     let delta = (offset + 2) * num_icons + Math.round(Math.random() * num_icons);
 
+
+      target = (previousSpinResult && reel.id === 'reel2') ? previousSpinResult : null;
+
+    // Rest of your roll function...
+
+    // At the end of the spin (you may need to put this elsewhere depending on your specific implementation)
+    // If it's the first reel, store the spin result
+    if (reel.id === 'reel1') {
+         previousSpinResult = delta%num_icons;
+    }
+
     const style = getComputedStyle(reel),
         // Current background position
         backgroundPositionY = parseFloat(style["background-position-y"]);
-
+    debugEl.textContent = target;
     // Rigged?
     if (target) {
         // calculate delta to target
@@ -114,20 +125,14 @@ const roll = (reel, offset = 0, target = null) => {
     });
 };
 
-
 /**
  * Roll all reels, when promise resolve
 /**
  * Roll all reels, when promise resolves roll again
  */
 function rollAll() {
-
-   // debugEl.textContent = 'rolling...';
-
     const reelsList = document.querySelectorAll('.slots > .reel');
-
     Promise
-
         // Activate each reel, must convert NodeList to Array for this with spread operator
         .all( [...reelsList].map((reel, i) => roll(reel, i)) )
 
@@ -141,7 +146,15 @@ function rollAll() {
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
                 const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
                 balance += 500;
-               if(indexes[0] == indexes[1]==indexes[2]){balance += 500;}
+                sendData(dataToBeSent,
+                    data => console.log('Success:', data),
+                    error => console.log('Error:', error)
+                );
+               if(indexes[0] == indexes[1]&&indexes[1]==indexes[2]){balance += 500;
+                   sendData(dataToBeSent,
+                       data => console.log('Success:', data),
+                       error => console.log('Error:', error)
+                   );}
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
                 balanceEl.innerText = balance;
@@ -150,6 +163,10 @@ function rollAll() {
             }
             else {
                 balance -= 100;
+                sendData(dataToBeSent,
+                    data => console.log('Success:', data),
+                    error => console.log('Error:', error)
+                );
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
                 balanceEl.innerText = balance;
