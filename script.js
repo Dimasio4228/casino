@@ -81,7 +81,10 @@ const roll = (reel, offset = 0, target = null) => {
 
 
       target = (previousSpinResult && reel.id === 'reel2') ? previousSpinResult : null;
-
+    if (target !== null) {
+        // If target is specified, we correct the delta to achieve the desired result.
+        delta = ((offset + 2) * num_icons) - indexes[reel.id.replace('reel', '')] + target;
+    }
     // Rest of your roll function...
 
     // At the end of the spin (you may need to put this elsewhere depending on your specific implementation)
@@ -141,8 +144,12 @@ function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
     Promise
         // Activate each reel, must convert NodeList to Array for this with spread operator
-        .all( [...reelsList].map((reel, i) => roll(reel, i, lossCount >= 3 ? 0 : null)) )
-
+        .all( [...reelsList].map((reel, i) => {
+            if(lossCount >= 2 && i !== 0) { // for 2nd and 3rd wheel after 3 losses
+                return roll(reel, i, i === 1 ? indexes[0] : null);
+            }
+            return roll(reel, i);
+        }))
         // When all reels done animating (all promises solve)
         .then((deltas) => {
             // add up indexes
