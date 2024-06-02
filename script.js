@@ -33,6 +33,7 @@ sendData(dataToBeSent,
 
                 try {
                     balance = data.balance;
+                    balanceEl.innerText = balance;
                    // window.alert("bal " + data.balance);
                 } catch (err) {
                    // window.alert(err);
