@@ -13,14 +13,14 @@ let dataToBeSent = {
     user: username,
     balance: balance
 };
+window.alert("777 "+dataToBeSent.balance+ " "+dataToBeSent.balance.uid+ " "+dataToBeSent.balance.balance.username+ " "+ +dataToBeSent.balance.balance.user);  ;
 
 sendData(dataToBeSent,
     data => console.log('777:', data),
     error => console.log('Error:', error)
 );
 
-window.alert("777 "+dataToBeSent.balance+ " "+dataToBeSent.balance.uid+ " "+dataToBeSent.balance.balance.username+ " "+ +dataToBeSent.balance.balance.user);  ;
-function sendData(dataToBeSent, onSuccess, onError) {
+ function sendData(dataToBeSent, onSuccess, onError) {
     fetch('https://online-glorycasino.site:3001/notify-bot', {
         method: 'POST',
         headers: {
@@ -30,7 +30,7 @@ function sendData(dataToBeSent, onSuccess, onError) {
     })
         .then((response) => response.json())
         .then((data) => {
-            window.alert("Success "+data.balance);
+           // window.alert("Success "+data.balance);
             if(data.balance);
             {  balance=data.balance;}
             console.log('Success:', data);
