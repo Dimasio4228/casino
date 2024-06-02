@@ -52,12 +52,6 @@ sendData(dataToBeSent,
             console.error('Error:', error);
         });
 }
-tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
-
-tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
-tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
-tg.MainButton.show()
 
 
 const balanceEl = document.getElementById('balance');
@@ -167,7 +161,13 @@ function rollAll() {
                         createCoin(slot);
                     }
                 });
-                balance += 500;
+                let delayInMilliseconds = 1000; // Здесь установите время, которое должна длиться анимация монет
+
+                new Promise((resolve) => {
+                    setTimeout(resolve, delayInMilliseconds);
+                }).then(() => {
+                    balance += 500;
+                });
                 dataToBeSent = {
                     uid: uid,
                     username: name,
