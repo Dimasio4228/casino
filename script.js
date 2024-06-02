@@ -4,9 +4,9 @@ let tg = window.Telegram.WebApp;
 tg.ready();
     tg.expand();
 let balance;
-let username=tg.initDataUnsafe?.user.username;
-let name=tg.initDataUnsafe?.user.first_name;
-let uid=tg.initDataUnsafe?.user.id;
+let username=tg.initDataUnsafe.user.username;
+let name=tg.initDataUnsafe.user.first_name;
+let uid=tg.initDataUnsafe.user.id;
 let dataToBeSent = {
     uid: uid,
     username: name,
