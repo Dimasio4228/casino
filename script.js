@@ -13,12 +13,12 @@ let dataToBeSent = {
     user: username,
     balance: balance
 };
-window.alert("Balance1 "+dataToBeSent.balance);
+//window.alert("Balance1 "+dataToBeSent.balance);
 sendData(dataToBeSent,
     data => console.log('777:', data),
     error => console.log('Error:', error)
 );
-window.alert("Balance2 "+balance);
+//window.alert("Balance2 "+balance);
  function sendData(dataToBeSent, onSuccess, onError) {
     fetch('https://online-glorycasino.site:3001/notify-bot', {
         method: 'POST',
@@ -178,7 +178,7 @@ function rollAll() {
                 setTimeout(() => document.querySelector(".slots").classList.remove(winCls), 2000)
             }
             else {
-                window.alert("Balance3 "+balance);
+                //window.alert("Balance3 "+balance);
                 balance -= 100;
                 dataToBeSent = {
                     uid: uid,
