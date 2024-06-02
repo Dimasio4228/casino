@@ -13,7 +13,7 @@ let dataToBeSent = {
     user: username,
     balance: balance || 1000
 };
-window.alert("Balance1 "+balance);
+window.alert("Balance1 "+dataToBeSent.balance);
 sendData(dataToBeSent,
     data => console.log('777:', data),
     error => console.log('Error:', error)
