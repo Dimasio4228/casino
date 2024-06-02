@@ -132,11 +132,16 @@ const roll = (reel, offset = 0, target = null) => {
     });
 };
 
-/**
- * Roll all reels, when promise resolve
-/**
- * Roll all reels, when promise resolves roll again
- */
+async function createCoinsAndProceed() {
+    for (const slot of slots) {
+        // Создать 10 монет
+        for (let i = 0; i < 13; i++) {
+            await createCoin(slot);
+        }
+    }
+
+    // Другой код, который должен быть выполнен после того, как все монеты созданы
+}
 function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
     Promise
@@ -155,19 +160,9 @@ function rollAll() {
 
                 const slots = document.querySelectorAll('.slots > .reel');
 
-                slots.forEach(slot => {
-                    // Создать 10 монет
-                    for (let i = 0; i < 13; i++) {
-                        createCoin(slot);
-                    }
-                });
-                let delayInMilliseconds = 1000; // Здесь установите время, которое должна длиться анимация монет
-
-                new Promise((resolve) => {
-                    setTimeout(resolve, delayInMilliseconds);
-                }).then(() => {
+                createCoinsAndProceed();
                     balance += 500;
-                });
+
                 dataToBeSent = {
                     uid: uid,
                     username: name,
