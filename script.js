@@ -33,9 +33,9 @@ sendData(dataToBeSent,
 
                 try {
                     balance = data.balance;
-                    window.alert("bal " + data.balance);
+                   // window.alert("bal " + data.balance);
                 } catch (err) {
-                    window.alert(err);
+                   // window.alert(err);
                 }
 
         })
