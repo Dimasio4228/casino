@@ -131,7 +131,7 @@ const roll = (reel, offset = 0, target = null) => {
 
     });
 };
-
+let lossCount = 0; // Сч
 /**
  * Roll all reels, when promise resolve
 /**
@@ -140,19 +140,16 @@ const roll = (reel, offset = 0, target = null) => {
 function rollAll() {
     const reelsList = document.querySelectorAll('.slots > .reel');
     Promise
-        // Activate each reel, must convert NodeList to Array for this with spread operator
-        .all( [...reelsList].map((reel, i) => roll(reel, i)) )
-
-        // When all reels done animating (all promises solve)
+        .all( [...reelsList].map((reel, i) => roll(reel, i, lossCount >= 3 ? 0 : null)) )
         .then((deltas) => {
-            // add up indexes
+            // ...
             deltas.forEach((delta, i) => indexes[i] = (indexes[i] + delta)%num_icons);
           //  debugEl.textContent = indexes.map((i) => iconMap[i]).join(' = ');
 
             // Win conditions
             if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
                 const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
-
+                lossCount = 0;
                 const slots = document.querySelectorAll('.slots > .reel');
 
                 slots.forEach(slot => {
@@ -194,6 +191,7 @@ function rollAll() {
             else {
                 //window.alert("Balance3 "+balance);
                 balance -= 100;
+                lossCount++;
                 dataToBeSent = {
                     uid: uid,
                     username: name,
