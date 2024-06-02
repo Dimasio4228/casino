@@ -30,10 +30,14 @@ window.alert("Balance2 "+balance);
         .then((response) => response.json())
         .then((data) => {
            // window.alert("Success "+data.balance);
-            if(data.balance)
-            {  balance=data.balance;
-                window.alert("bal " + data.balance );}
-           // console.log('Success:', data);
+            if(data.balance) {
+                try {
+                    balance = data.balance;
+                    window.alert("bal " + data.balance);
+                } catch (err) {
+                    window.alert(err);
+                }
+            }
         })
         .catch((error) => {
             console.error('Error:', error);
