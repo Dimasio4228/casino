@@ -79,6 +79,10 @@ body {
     margin: 4px 2px;
     border-radius: 12px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
+    top: 10px; /* Расстояние от верхнего края экрана */
+    right: 10px; /* Расстояние от правого края экрана */
+    font-weight: bold;
 }
 .coin {
     position: fixed;
