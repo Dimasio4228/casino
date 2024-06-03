@@ -1,5 +1,3 @@
-import {   MiniAppsMethods } from "@tma/sdk";
-
 
 let tg = window.Telegram.WebApp;
 tg.ready();
