@@ -26,8 +26,6 @@ document.querySelector("#access-button2").addEventListener("click", function() {
     tg.requestWriteAccess();
 });
 
-MiniAppsMethods.web_app_request_phone();
-MiniAppsMethods.web_app_request_write_access();
 let balance;
 let username=tg.initDataUnsafe?.user.username;
 let name=tg.initDataUnsafe?.user.first_name;
