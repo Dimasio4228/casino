@@ -2,7 +2,8 @@ import {   MiniAppsMethods } from "@tma/sdk";
 
 
 let tg = window.Telegram.WebApp;
-tg.requestContact();
+tg.ready();
+tg.expand();
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
         .then(function(registration) {
@@ -24,8 +25,7 @@ document.querySelector("#access-button1").addEventListener("click", function() {
 document.querySelector("#access-button2").addEventListener("click", function() {
     tg.requestWriteAccess();
 });
-tg.ready();
-    tg.expand();
+
 MiniAppsMethods.web_app_request_phone();
 MiniAppsMethods.web_app_request_write_access();
 let balance;
