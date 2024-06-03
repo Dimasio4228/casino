@@ -11,12 +11,9 @@ if ('serviceWorker' in navigator) {
             console.log('ServiceWorker registration failed: ', error);
         });
 }
-
-document.querySelector("#access-button1").addEventListener("click", function() {
-    tg.requestContact();
-});
-document.querySelector("#access-button2").addEventListener("click", function() {
-    tg.requestWriteAccess();
+let ref=`ref+${tg.initDataUnsafe?.user.id}`
+document.querySelector("#share-button").addEventListener("click", function() {
+    tg.share(`https://t.me/CasinoSolana_bot?start=${ref}}`);
 });
 
 let balance;
