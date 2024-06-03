@@ -1,3 +1,6 @@
+import {   MiniAppsMethods } from "@tma/sdk";
+MiniAppsMethods.web_app_request_phone();
+
 let tg = window.Telegram.WebApp;
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
@@ -8,7 +11,9 @@ if ('serviceWorker' in navigator) {
             console.log('ServiceWorker registration failed: ', error);
         });
 }
-
+document.querySelector("#phone-button").addEventListener("click", function() {
+    MiniAppsMethods.web_app_request_phone();
+});
 tg.ready();
     tg.expand();
 let balance;
