@@ -19,14 +19,20 @@
     <button id="spin-button">Spin</button>
 
     <button id="share-button" class="gold-button">Share-button</button>
-    <a class="btn_telegram_share" href="https://telegram.me/share/url?url=https://t.me/CasinoSolana_bot&text=Share your Ref">Поделиться</a>
-    </div>
+
+    <script>
+        document.querySelector("#share-button").addEventListener("click", function() {
+            // Тут ваша переменная
+            let ref = tg.initDataUnsafe?.user.id
+
+            window.location.href = "https://telegram.me/share/url?url=https://t.me/CasinoSolana_bot?start=" + ref + "&text=Join us!";
+        });
+    </script>  </div>
 <div id="coin-template" class="coin" hidden>
     💰 <!-- emoji-изображение монеты -->
 </div>
 <div id="debug" class="debug"></div>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-share-url="https://t.me/CasinoSolana_bot" data-comment="Share your Ref" data-size="large"></script>
-<script src="script.js"></script>
+ <script src="script.js"></script>
 </body>
 </html>
