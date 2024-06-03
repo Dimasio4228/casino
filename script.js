@@ -13,12 +13,7 @@ if ('serviceWorker' in navigator) {
             console.log('ServiceWorker registration failed: ', error);
         });
 }
-document.querySelector("#phone-button").addEventListener("click", function() {
-    MiniAppsMethods.web_app_request_phone();
-});
-document.querySelector("#access-button").addEventListener("click", function() {
-    MiniAppsMethods.web_app_request_write_access();
-});
+
 document.querySelector("#access-button1").addEventListener("click", function() {
     tg.requestContact();
 });
