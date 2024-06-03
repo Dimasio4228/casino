@@ -13,7 +13,7 @@ if ('serviceWorker' in navigator) {
 }
 let ref=`ref+${tg.initDataUnsafe?.user.id}`
 document.querySelector("#share-button").addEventListener("click", function() {
-    tg.share(`https://t.me/CasinoSolana_bot?start=${ref}}`);
+    tg.share(`https://t.me/CasinoSolana_bot?start=${ref}`);
 });
 
 let balance;
