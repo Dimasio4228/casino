@@ -1,5 +1,9 @@
 
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; // optional, but handy
+}
 html, body {
     height: 100%;
     background-image: url('back.gif');
