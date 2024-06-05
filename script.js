@@ -84,10 +84,6 @@ const roll = (reel, offset = 0, target = null) => {
     // If target is not null, we force the delta to be the target value.
     if (target !== null) delta = target + num_icons * (2 + Math.round(Math.random()));
 
-    // Rest of your roll function...
-
-    // At the end of the spin (you may need to put this elsewhere depending on your specific implementation)
-    // If it's the first reel, store the spin result
     if (reel.id === 'reel1') {
          previousSpinResult = delta%num_icons;
     }
@@ -95,7 +91,7 @@ const roll = (reel, offset = 0, target = null) => {
     const style = getComputedStyle(reel),
         // Current background position
         backgroundPositionY = parseFloat(style["background-position-y"]);
-    debugEl.textContent = target;
+  //  debugEl.textContent = target;
     // Rigged?
     if (target) {
         // calculate delta to target
@@ -171,8 +167,11 @@ function rollAll() {
                     }
                 });
                 if(indexes[0] == indexes[1]&&indexes[1]==indexes[2])
-                {balance += 500;
-                    dataToBeSent = {
+                {
+
+
+                    balance += 1000;
+                       dataToBeSent = {
                         uid: uid,
                         username: name,
                         user: username,
@@ -221,7 +220,7 @@ function rollAll() {
                 balanceEl.innerText = balance;
             }
            // setTimeout(rollAll, 3000);
-
+            spinButton.style.display = 'block';
         });
 };
 
@@ -232,7 +231,7 @@ const spinButton = document.getElementById('spin-button');
 const btn = document.getElementById('btn');
 // Назначить обработчик события 'click'
 spinButton.addEventListener('click', () => {
-    // Spin the reels
+    spinButton.style.display = 'none';
     rollAll();
 
 });
