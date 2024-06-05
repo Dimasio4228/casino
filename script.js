@@ -220,7 +220,7 @@ function rollAll() {
                 balanceEl.innerText = balance;
             }
            // setTimeout(rollAll, 3000);
-            spinButton.style.display = 'visible';
+            spinButton.style.visibility = 'visible';
         });
 };
 
@@ -231,7 +231,7 @@ const spinButton = document.getElementById('spin-button');
 const btn = document.getElementById('btn');
 // Назначить обработчик события 'click'
 spinButton.addEventListener('click', () => {
-    spinButton.style.display = 'hidden';
+    spinButton.style.visibility = 'hidden';
     rollAll();
 
 });
