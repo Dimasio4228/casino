@@ -147,36 +147,33 @@ body {
     animation: flyAndFade 2s;
 }
 .footer-social {
-    display: flex; /* активация Flexbox */
+    position: fixed;
+    bottom: 13px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 .btn-social {
-    position: sticky;
-    bottom: 13px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Изменено с 'space-around' на 'flex-start' */
-    align-items: flex-start; /* добавлено 'flex-start', чтобы элементы начинались сверху */
-    flex-wrap: wrap; /* Добавлено для переноса элементов на новую строку, если они не помещаются */
-    width: 100% !important;
-    height: auto !important;
+
+     height: auto !important;
     background:none;
     box-shadow: 0px -1px 5px rgba(0,0,0,0.1);
     padding : 10px;
-     margin-right: 13px;
+     margin-right: 10px;
 }
 .btn-social a {
-    margin-right: 130px;    /* добавляет расстояние между ссылками a */
+    margin-right: 10px;
+
 
 }
-
-
 .btn-social img {
     width: auto;     /* Позволяет изображению масштабироваться в соответствии с его высотой. */
     height: 45px;
     border-radius: 12px;  /* Округляет углы изображений */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляет тень */
 }
-
 
 /* CSS-анимация */
 @keyframes flyAndFade {
