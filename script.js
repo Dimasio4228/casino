@@ -273,7 +273,7 @@ const autoSpinButton = document.getElementById('auto-spin-button');
 // Создаём функцию, которая будет выполняться каждые несколько секунд в течение 6 часов:
 let autoSpinInterval;
 autoSpinButton.addEventListener('click', () => {
-    startTimer();
+
     if (autoSpinInterval) {
         clearInterval(autoSpinInterval);
         autoSpinInterval = null;
