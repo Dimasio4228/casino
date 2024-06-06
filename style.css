@@ -7,7 +7,7 @@
 html, body {
     margin-right: 10px;
     height: 100%;
-    background-image: url('mon3.jpg');
+    background-image: url('back.gif');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -150,22 +150,22 @@ body {
     display: flex; /* активация Flexbox */
 }
 .btn-social {
+    position: sticky;
+    bottom: 13px;
     display: flex;
-
-    justify-content: space-between;
-    bottom: 0;
-    width: 100% !important; /* Добавлено !important */
-
-    height: 20px !important; /* Добавлено !important */
-
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start; /* Изменено с 'space-around' на 'flex-start' */
+    align-items: flex-start; /* добавлено 'flex-start', чтобы элементы начинались сверху */
+    flex-wrap: wrap; /* Добавлено для переноса элементов на новую строку, если они не помещаются */
+    width: 100% !important;
+    height: auto !important;
     background:none;
     box-shadow: 0px -1px 5px rgba(0,0,0,0.1);
-    margin : 10px;
-
+    padding : 10px;
+     margin-right: 13px;
 }
 .btn-social a {
-    margin-right: 100px;    /* добавляет расстояние между ссылками a */
+    margin-right: 130px;    /* добавляет расстояние между ссылками a */
 
 }
 
