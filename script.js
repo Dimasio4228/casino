@@ -140,11 +140,14 @@ let lossCount = 0; // Сч
  /**
  * Roll all reels, when promise resolves roll again
  */
-function rollAll() {
+let check=true;
+
+function rollAll()  {
+    check=false;
     const reelsList = document.querySelectorAll('.slots > .reel');
 
     let forcedValue = lossCount >= 3 ? Math.floor(Math.random() * num_icons) : null;
-
+    check=false;
     Promise
         // Roll each reel, must convert NodeList to Array for this with spread operator.
         .all([...reelsList].map((reel, i) => {
@@ -218,6 +221,7 @@ function rollAll() {
             }
             // setTimeout(rollAll, 3000);
             spinButton.style.visibility = 'visible';
+            check= true;
         });
 }
 
@@ -269,7 +273,7 @@ const autoSpinButton = document.getElementById('auto-spin-button');
 // Создаём функцию, которая будет выполняться каждые несколько секунд в течение 6 часов:
 let autoSpinInterval;
 autoSpinButton.addEventListener('click', () => {
-
+    startTimer();
     if (autoSpinInterval) {
         clearInterval(autoSpinInterval);
         autoSpinInterval = null;
@@ -278,15 +282,15 @@ autoSpinButton.addEventListener('click', () => {
         // Запускаем интервал, который будет вызывать функцию каждые 5 секунд (вы можете изменить это время):
         autoSpinInterval = setInterval(() => {
             // Проверяем, достаточно ли средств для спина:
-            if (balance >= 100) {
-                spinButton.click();
+            if (balance >= 100&&check===true) {
+               rollAll();
             } else {
                 // Если средств не хватает, прекращаем автовращение:
                 clearInterval(autoSpinInterval);
                 autoSpinInterval = null;
                 autoSpinButton.textContent = 'Auto Spin';
             }
-        }, 5000); // 5000 миллисекунд = 5 секунд
+        }, 3000); // 5000 миллисекунд = 5 секунд
         // Поменяем текст кнопки на "Остановить автовращение":
         autoSpinButton.textContent = 'Stop Auto Spin';
         // Установим функцию, которая остановит интервал через 6 часов:
@@ -297,4 +301,28 @@ autoSpinButton.addEventListener('click', () => {
         }, 6 * 60 * 60 * 1000); // 6 часов
     }
 });
+let timeLeft = 6 * 60 * 60; // 6 hours * 60 minutes/hour * 60 seconds/minute
+const timerElement = document.getElementById('timer');
+
+function startTimer() {
+    autoSpinInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(autoSpinInterval);
+            autoSpinButton.innerText = 'Auto Spin';
+        } else {
+            timeLeft--;
+            let hours = Math.floor(timeLeft / 3600);
+            let minutes = Math.floor((timeLeft % 3600) / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        }
+    }, 1000);
+}
+
+function pad(number) {
+    return number.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
+}
+
+
+
 window.onload = getData;
