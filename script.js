@@ -220,7 +220,8 @@ function rollAll()  {
                 balanceEl.innerText = balance;
             }
             // setTimeout(rollAll, 3000);
-            spinButton.style.visibility = 'visible';
+            if(autospin==false)
+            {spinButton.style.visibility = 'visible';}
             check= true;
         });
 }
@@ -269,15 +270,21 @@ function createCoin(slotElement) {
 // Создаём новую кнопку:
 const autoSpinButton = document.getElementById('auto-spin-button');
 
-
+let autospin=false;
 // Создаём функцию, которая будет выполняться каждые несколько секунд в течение 6 часов:
 let autoSpinInterval;
 autoSpinButton.addEventListener('click', () => {
-
+  if ( autoSpinButton.textContent == 'Stop Auto Spin') {
+      clearInterval(autoSpinInterval);
+      autoSpinInterval = null;
+      autoSpinButton.innerText = 'Auto Spin';
+      autospin =false;
+  }
     if (autoSpinInterval) {
         clearInterval(autoSpinInterval);
         autoSpinInterval = null;
         autoSpinButton.textContent = 'Auto Spin';
+        autospin =false;
 
     } else {
         // Запускаем интервал, который будет вызывать функцию каждые 5 секунд (вы можете изменить это время):
@@ -286,11 +293,12 @@ autoSpinButton.addEventListener('click', () => {
             if (balance >= 100&&check===true) {
                rollAll();
                 spinButton.style.visibility = 'hidden';
+                autospin =true;
             }
         }, 3000); // 5000 миллисекунд = 5 секунд
         // Поменяем текст кнопки на "Остановить автовращение":
         autoSpinButton.textContent = 'Stop Auto Spin';
-
+        autospin =false;
         // Установим функцию, которая остановит интервал через 6 часов:
         setTimeout(() => {
             clearInterval(autoSpinInterval);
