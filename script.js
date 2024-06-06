@@ -278,6 +278,7 @@ autoSpinButton.addEventListener('click', () => {
         clearInterval(autoSpinInterval);
         autoSpinInterval = null;
         autoSpinButton.textContent = 'Auto Spin';
+        spinButton.style.visibility = 'hidden';
     } else {
         // Запускаем интервал, который будет вызывать функцию каждые 5 секунд (вы можете изменить это время):
         autoSpinInterval = setInterval(() => {
@@ -288,6 +289,7 @@ autoSpinButton.addEventListener('click', () => {
         }, 3000); // 5000 миллисекунд = 5 секунд
         // Поменяем текст кнопки на "Остановить автовращение":
         autoSpinButton.textContent = 'Stop Auto Spin';
+        spinButton.style.visibility = 'visible';
         // Установим функцию, которая остановит интервал через 6 часов:
         setTimeout(() => {
             clearInterval(autoSpinInterval);
@@ -295,6 +297,7 @@ autoSpinButton.addEventListener('click', () => {
             autoSpinButton.textContent = 'Auto Spin';
         }, 6 * 60 * 60 * 1000); // 6 часов
     }
+    startTimer();
 });
 let timeLeft = 6 * 60 * 60; // 6 hours * 60 minutes/hour * 60 seconds/minute
 const timerElement = document.getElementById('timer');
