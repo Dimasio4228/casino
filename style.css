@@ -16,8 +16,15 @@ html, body {
     display: flex;
 
 }
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the start */
+    gap: 20px;
+}
 
-#spin-button {
+#spin-button,
+#auto-spin-button {
     display: block;
     margin: 20px auto 0;
     background: linear-gradient(goldenrod, darkgoldenrod 100%);
@@ -31,10 +38,18 @@ html, body {
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
     text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
     cursor: pointer;
+
+    flex: 0 0 auto;
 }
 
-#spin-button:hover {
+#spin-button:hover,
+#auto-spin-button:hover {
     background: linear-gradient(darkgoldenrod, goldenrod);
+}
+.auto-spin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 body {
 
