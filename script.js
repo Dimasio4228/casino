@@ -259,7 +259,7 @@ function createCoin(slotElement) {
     });
 
 };
-window.onload = getData;
+
 const spinButton = document.getElementById('spin-button');
 
 // Создаём новую кнопку:
@@ -270,7 +270,7 @@ document.body.appendChild(autoSpinButton);
 // Создаём функцию, которая будет выполняться каждые несколько секунд в течение 6 часов:
 let autoSpinInterval;
 autoSpinButton.addEventListener('click', () => {
-    startTimer();
+
     if (autoSpinInterval) {
         clearInterval(autoSpinInterval);
         autoSpinInterval = null;
@@ -298,25 +298,4 @@ autoSpinButton.addEventListener('click', () => {
         }, 6 * 60 * 60 * 1000); // 6 часов
     }
 });
-let timeLeft = 6 * 60 * 60; // 6 hours * 60 minutes/hour * 60 seconds/minute
-const timerElement = document.getElementById('timer');
-
-function startTimer() {
-    autoSpinInterval = setInterval(() => {
-        if (timeLeft <= 0) {
-            clearInterval(autoSpinInterval);
-            autoSpinButton.innerText = 'Auto Spin';
-        } else {
-            timeLeft--;
-            let hours = Math.floor(timeLeft / 3600);
-            let minutes = Math.floor((timeLeft % 3600) / 60);
-            let seconds = timeLeft % 60;
-            timerElement.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-        }
-    }, 1000);
-}
-
-function pad(number) {
-    return number.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
-}
-
+window.onload = getData;
