@@ -260,42 +260,4 @@ function createCoin(slotElement) {
 
 };
 
-const spinButton = document.getElementById('spin-button');
-
-// Создаём новую кнопку:
-const autoSpinButton = document.createElement('button');
-autoSpinButton.textContent = 'Auto Spin';
-document.body.appendChild(autoSpinButton);
-
-// Создаём функцию, которая будет выполняться каждые несколько секунд в течение 6 часов:
-let autoSpinInterval;
-autoSpinButton.addEventListener('click', () => {
-
-    if (autoSpinInterval) {
-        clearInterval(autoSpinInterval);
-        autoSpinInterval = null;
-        autoSpinButton.textContent = 'Auto Spin';
-    } else {
-        // Запускаем интервал, который будет вызывать функцию каждые 5 секунд (вы можете изменить это время):
-        autoSpinInterval = setInterval(() => {
-            // Проверяем, достаточно ли средств для спина:
-            if (balance >= 100) {
-                spinButton.click();
-            } else {
-                // Если средств не хватает, прекращаем автовращение:
-                clearInterval(autoSpinInterval);
-                autoSpinInterval = null;
-                autoSpinButton.textContent = 'Auto Spin';
-            }
-        }, 5000); // 5000 миллисекунд = 5 секунд
-        // Поменяем текст кнопки на "Остановить автовращение":
-        autoSpinButton.textContent = 'Stop Auto Spin';
-        // Установим функцию, которая остановит интервал через 6 часов:
-        setTimeout(() => {
-            clearInterval(autoSpinInterval);
-            autoSpinInterval = null;
-            autoSpinButton.textContent = 'Auto Spin';
-        }, 6 * 60 * 60 * 1000); // 6 часов
-    }
-});
 window.onload = getData;
