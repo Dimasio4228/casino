@@ -284,11 +284,6 @@ autoSpinButton.addEventListener('click', () => {
             // Проверяем, достаточно ли средств для спина:
             if (balance >= 100&&check===true) {
                rollAll();
-            } else {
-                // Если средств не хватает, прекращаем автовращение:
-                clearInterval(autoSpinInterval);
-                autoSpinInterval = null;
-                autoSpinButton.textContent = 'Auto Spin';
             }
         }, 3000); // 5000 миллисекунд = 5 секунд
         // Поменяем текст кнопки на "Остановить автовращение":
