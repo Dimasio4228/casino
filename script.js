@@ -278,18 +278,19 @@ autoSpinButton.addEventListener('click', () => {
         clearInterval(autoSpinInterval);
         autoSpinInterval = null;
         autoSpinButton.textContent = 'Auto Spin';
-        spinButton.style.visibility = 'hidden';
+
     } else {
         // Запускаем интервал, который будет вызывать функцию каждые 5 секунд (вы можете изменить это время):
         autoSpinInterval = setInterval(() => {
             // Проверяем, достаточно ли средств для спина:
             if (balance >= 100&&check===true) {
                rollAll();
+                spinButton.style.visibility = 'hidden';
             }
         }, 3000); // 5000 миллисекунд = 5 секунд
         // Поменяем текст кнопки на "Остановить автовращение":
         autoSpinButton.textContent = 'Stop Auto Spin';
-        spinButton.style.visibility = 'visible';
+
         // Установим функцию, которая остановит интервал через 6 часов:
         setTimeout(() => {
             clearInterval(autoSpinInterval);
