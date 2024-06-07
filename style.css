@@ -104,6 +104,7 @@ body {
     font-weight: bold; /* Жирное начертание */
     -webkit-text-stroke: 1px black; /* Черная рамка вокруг текста для Chrome и Safari */
     text-stroke: 1px black; /* Черная рамка вокруг текста для других браузеров */
+    font-family: "Times New Roman", Times, serif;
 }
 
 .btn_telegram_share {
