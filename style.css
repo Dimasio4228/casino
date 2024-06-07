@@ -11,6 +11,8 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    justify-content: center; // Выравнивание по горизонтали
+    align-items: center; // Выравнивание по вертикали
 
     flex-direction: column;
     display: flex;
@@ -278,12 +280,7 @@ body {
     color: red;
     font-weight: 700;
 }
-.balance {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    font-size: 24px;
-}
+
 .win {
     position: absolute;
     top: 50%;
