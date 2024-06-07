@@ -269,67 +269,59 @@ function createCoin(slotElement) {
 
 // Создаём новую кнопку:
 const autoSpinButton = document.getElementById('auto-spin-button');
-
-let autospin=false;
-// Создаём функцию, которая будет выполняться каждые несколько секунд в течение 6 часов:
 let autoSpinInterval;
-autoSpinButton.addEventListener('click', () => {
-  if ( autoSpinButton.textContent == 'Stop Auto Spin') {
-      clearInterval(autoSpinInterval);
-      autoSpinInterval = null;
-      autoSpinButton.innerText = 'Auto Spin';
-      autospin =false;
-  }
-    if (autoSpinInterval) {
-        clearInterval(autoSpinInterval);
-        autoSpinInterval = null;
-        autoSpinButton.textContent = 'Auto Spin';
-        autospin =false;
-
-    } else {
-        // Запускаем интервал, который будет вызывать функцию каждые 5 секунд (вы можете изменить это время):
-        autoSpinInterval = setInterval(() => {
-            // Проверяем, достаточно ли средств для спина:
-            if (balance >= 100&&check===true) {
-               rollAll();
-                spinButton.style.visibility = 'hidden';
-                autospin =true;
-            }
-        }, 3000); // 5000 миллисекунд = 5 секунд
-        // Поменяем текст кнопки на "Остановить автовращение":
-        autoSpinButton.textContent = 'Stop Auto Spin';
-        autospin =false;
-        // Установим функцию, которая остановит интервал через 6 часов:
-        setTimeout(() => {
-            clearInterval(autoSpinInterval);
-            autoSpinInterval = null;
-            autoSpinButton.textContent = 'Auto Spin';
-        }, 6 * 60 * 60 * 1000); // 6 часов
-    }
-    startTimer();
-});
-let timeLeft = 6 * 60 * 60; // 6 hours * 60 minutes/hour * 60 seconds/minute
+let timerInterval
+let timeLeft = 6 * 60 * 60;
 const timerElement = document.getElementById('timer');
 
 function startTimer() {
-    autoSpinInterval = setInterval(() => {
+    // Запуск таймера
+    timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
-            clearInterval(autoSpinInterval);
+            clearInterval(timerInterval);
             autoSpinButton.innerText = 'Auto Spin';
         } else {
             timeLeft--;
             let hours = Math.floor(timeLeft / 3600);
             let minutes = Math.floor((timeLeft % 3600) / 60);
             let seconds = timeLeft % 60;
-            timerElement.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+            timerElement.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
     }, 1000);
 }
 
-function pad(number) {
-    return number.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
-}
+autoSpinButton.addEventListener('click', () => {
+    if (autoSpinInterval) {
+        // Останавливаем вращение и таймер
+        clearInterval(autoSpinInterval);
+        clearInterval(timerInterval);
+        autoSpinInterval = null;
+        timerInterval = null;
+        autoSpinButton.textContent = 'Auto Spin';
 
+    } else {
+        // Запускаем вращение и таймер
+        autoSpinInterval = setInterval(() => {
+            if (balance >= 100 && check === true) {
+                rollAll();
+                spinButton.style.visibility = 'hidden';
+            }
+        }, 3000);
+
+        autoSpinButton.textContent = 'Stop Spin';
+        startTimer();
+
+        // Через 6 часов останавливаем все
+        setTimeout(() => {
+            clearInterval(autoSpinInterval);
+            clearInterval(timerInterval);
+            autoSpinInterval = null;
+            timerInterval = null;
+            autoSpinButton.textContent = 'Auto Spin';
+            timeLeft = 6 * 60 * 60; // сброс обратного отсчета
+        }, 6 * 60 * 60 * 1000);
+    }
+});
 
 
 window.onload = getData;
