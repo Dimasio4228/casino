@@ -100,8 +100,8 @@ body {
 }
 
 .btn_telegram_share {
-
-
+    top: 23px;
+    position: fixed;
     text-align: center;
     vertical-align: middle;
     margin-right: 7px;
