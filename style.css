@@ -65,7 +65,7 @@ body {
 
 .slots {
     position: relative;
-    width: 277px;
+    width: 257px;
     height: 237px;
     display: flex;
     justify-content: center; /* центрирует барабаны по горизонтали */
@@ -241,7 +241,7 @@ body {
     animation: win2 200ms steps(2, end) infinite;
 }
 .slots .reel {
-    position: relative;
+
     width: 79px;
     height: 237px;
     border: 1px solid rgba(0, 0, 0, 0.3);
