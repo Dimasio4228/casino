@@ -163,8 +163,8 @@ function rollAll()  {
             //  debugEl.textContent = indexes.map((i) => iconMap[i]).join(' = ');
 
             // Win conditions
-            if (indexes[0] == indexes[1] || indexes[1] == indexes[2]) {
-                const winCls = indexes[0] == indexes[2] ? "win2" : "win1";
+            if (indexes[0] === indexes[1] || indexes[1] === indexes[2]) {
+                const winCls = indexes[0] === indexes[2] ? "win2" : "win1";
                 lossCount = 0;
                 const slots = document.querySelectorAll('.slots > .reel');
 
@@ -174,7 +174,7 @@ function rollAll()  {
                         createCoin(slot);
                     }
                 });
-                if (indexes[0] == indexes[1] && indexes[1] == indexes[2]) {
+                if (indexes[0] === indexes[1] && indexes[1] === indexes[2]) {
 
 
                     balance += 1000;
@@ -220,7 +220,7 @@ function rollAll()  {
                 balanceEl.innerText = balance;
             }
             // setTimeout(rollAll, 3000);
-            if(autospin==false)
+            if(spin===false)
             {spinButton.style.visibility = 'visible';}
             check= true;
         });
@@ -289,7 +289,7 @@ function startTimer() {
         }
     }, 1000);
 }
-
+let spin=false;
 autoSpinButton.addEventListener('click', () => {
     if (autoSpinInterval) {
         // Останавливаем вращение и таймер
@@ -298,6 +298,7 @@ autoSpinButton.addEventListener('click', () => {
         autoSpinInterval = null;
         timerInterval = null;
         autoSpinButton.textContent = 'Auto Spin';
+        spin=false;
 
     } else {
         // Запускаем вращение и таймер
@@ -305,6 +306,7 @@ autoSpinButton.addEventListener('click', () => {
             if (balance >= 100 && check === true) {
                 rollAll();
                 spinButton.style.visibility = 'hidden';
+                spin=true;
             }
         }, 3000);
 
@@ -318,6 +320,7 @@ autoSpinButton.addEventListener('click', () => {
             autoSpinInterval = null;
             timerInterval = null;
             autoSpinButton.textContent = 'Auto Spin';
+            spin=false;
             timeLeft = 6 * 60 * 60; // сброс обратного отсчета
         }, 6 * 60 * 60 * 1000);
     }
