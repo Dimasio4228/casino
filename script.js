@@ -321,8 +321,8 @@ autoSpinButton.addEventListener('click', () => {
             timerInterval = null;
             autoSpinButton.textContent = 'Auto Spin';
             spin=false;
-            timeLeft = 6 * 60 * 60; // сброс обратного отсчета
-        }, 6 * 60 * 60 * 1000);
+            timeLeft =  60; // сброс обратного отсчета
+        },  60 * 1000);
     }
 });
 
