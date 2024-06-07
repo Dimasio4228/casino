@@ -40,7 +40,7 @@ html, body {
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
     text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
     cursor: pointer;
-
+    right:55px;
     flex: 0 0 auto;
 }
 
@@ -116,7 +116,7 @@ body {
     color: #ffffff;
     text-decoration: none;
     position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
-
+    top: 11px;
     right: 10px; /* Расстояние от правого края экрана */
 }
 /*.btn_telegram_share:focus*/
@@ -130,7 +130,7 @@ body {
     color: #ffffff;
     text-decoration: none;
     position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
-
+    top: 11px;
     right: 10px; /* Расстояние от правого края экрана */
 }
 .btn_telegram_share:active {
@@ -139,7 +139,7 @@ body {
     background: -moz-linear-gradient(top, #32668d, #54aaeb);
     background: linear-gradient(to bottom, #32668d, #54aaeb);
     position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
-
+    top: 11px;
     right: 10px; /* Расстояние от правого края экрана */
 }
 .btn_telegram_share:before{
@@ -149,7 +149,7 @@ body {
     width: 24px;
     line-height: 24px;
     margin: 0 4px -6px -4px;
-
+    top: 11px;
     background: url("telegramm.png") no-repeat left center transparent;
     background-size: 100% 100%;
 }
