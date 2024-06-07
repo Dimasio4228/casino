@@ -20,9 +20,13 @@ html, body {
 }
 .buttons {
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items at the start */
-    gap: 20px;
+    justify-content: space-between; //Это распределяет пространство между кнопками.
+align-items: center; //Это помещает кнопки на одну горизонталь.
+position: fixed; //Это делает его фиксированным;
+    bottom: 50px; //Это смещает контейнер с кнопками снизу вверх.
+left: 55px; //Это смещает контейнер с кнопками слева направо.
+right: 55px; //Это смещает контейнер с кнопками справа налево.
+padding: 0;
 }
 
 #spin-button,
