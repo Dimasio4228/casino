@@ -64,7 +64,7 @@ body {
 }
 
 .slots {
-    position: relative;
+    position: fixed;
     width: 257px;
     height: 237px;
     display: flex;
@@ -241,7 +241,7 @@ body {
     animation: win2 200ms steps(2, end) infinite;
 }
 .slots .reel {
-
+    position: fixed;
     width: 79px;
     height: 237px;
     border: 1px solid rgba(0, 0, 0, 0.3);
