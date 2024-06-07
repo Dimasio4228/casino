@@ -42,6 +42,7 @@ function sendData(dataToBeSent) {
 
             try {
                 balance = data.balance;
+                Task=data.Task;
                 balanceEl.innerText = balance;
                 // window.alert("bal " + data.balance);
             } catch (err) {
@@ -341,8 +342,13 @@ taskSection.addEventListener('click', () => {
 
         // Создаем "согласиться" кнопку
         const agreeButton = document.createElement('button');
-        agreeButton.textContent = "Agree";
         agreeButton.style.color = "gold";
+        if(Task=="1"){
+            agreeButton.style.color = "green";
+            agreeButton.disabled = true;
+        }
+        agreeButton.textContent = "Agree";
+
         agreeButton.addEventListener('click', () => {
             agreeButton.disabled = true;
             agreeButton.style.color = "green";
