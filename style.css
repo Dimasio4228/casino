@@ -50,26 +50,7 @@ padding: 0; //Обнулим отступы внутри контейнера ч
 }
 
 
-#spin-button,
-#auto-spin-button {
-    position: fixed;
-    display: block;
-    margin: 20px auto 0;
-    background: linear-gradient(goldenrod, darkgoldenrod 100%);
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 30px;
-    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
-    text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
-    cursor: pointer;
-    right:55px;
-    left: 55px;
-    flex: 0 0 auto;
-}
+
 
 #spin-button:hover,
 #auto-spin-button:hover {
