@@ -27,6 +27,7 @@ html, body {
 
 #spin-button,
 #auto-spin-button {
+    position: fixed;
     display: block;
     margin: 20px auto 0;
     background: linear-gradient(goldenrod, darkgoldenrod 100%);
