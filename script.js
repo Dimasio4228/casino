@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
         });
 }
 
-
+let Task="0";
 let balance;
 let username = tg.initDataUnsafe?.user.username;
 let name = tg.initDataUnsafe?.user.first_name;
@@ -325,34 +325,42 @@ autoSpinButton.addEventListener('click', () => {
         },  60 * 1000);
     }
 });
+const taskSection = document.getElementById('task-section');
 
-const taskSection = document.getElementById('task-section')
+let taskList = document.getElementById('task-list');
+
 taskSection.addEventListener('click', () => {
-    // Проверяем, был ли уже создан список задач
-    if (document.getElementById('task-list')) return;
+    if (!taskList) {
+        taskList = document.createElement('ol');
+        taskList.id = 'task-list';
 
-    // Создаем список задач
-    const taskList = document.createElement('ol');
-    taskList.id = 'task-list';
+        // Создаем задачу
+        const taskItem = document.createElement('li');
+        const taskText = document.createTextNode('Activate Auto Spin. Price 100000$');
 
-    // Создаем задачу
-    const taskItem = document.createElement('li');
-    const taskText = document.createTextNode('Activate Auto Spin. Price 100000$');
+        // Создаем "согласиться" кнопку
+        const agreeButton = document.createElement('button');
+        agreeButton.textContent = "Agree";
+        agreeButton.style.color = "gold";
+        agreeButton.addEventListener('click', () => {
+            agreeButton.disabled = true;
+            agreeButton.style.color = "green";
+            sendData({data0:Task} );
+            Task="1";
+        });
 
-    // Создаем "согласиться" кнопку
-    const agreeButton = document.createElement('button');
-    agreeButton.textContent = "Agree";
-    agreeButton.style.color = "gold";
-    agreeButton.addEventListener('click', () => {
-        // Можно нажать только один раз
-        agreeButton.disabled = true;
-        agreeButton.style.color = "green";
-    });
-
-    // Добавляем все элементы в DOM
-    taskItem.appendChild(taskText);
-    taskItem.appendChild(agreeButton);
-    taskList.appendChild(taskItem);
-    taskSection.appendChild(taskList);
+        // Добавляем все элементы в DOM
+        taskItem.appendChild(taskText);
+        taskItem.appendChild(agreeButton);
+        taskList.appendChild(taskItem);
+        taskSection.appendChild(taskList);
+    } else if (taskList.style.display === "block"){
+        taskList.style.display = "none";
+    } else {
+        taskList.style.display = "block";
+    }
 });
+
+
+
 window.onload = getData;
