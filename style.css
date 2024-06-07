@@ -64,13 +64,13 @@ body {
 }
 
 .slots {
-    position: fixed;
-    width: 257px;
+    position: relative;
+    width: 277px;
     height: 237px;
     display: flex;
-    justify-content: center; /* центрирует барабаны по горизонтали */
+     /* центрирует барабаны по горизонтали */
     align-items: center;
-
+    justify-content: space-between;
     padding: 24px;
     background: linear-gradient(45deg, palegoldenrod 0%, goldenrod 100%);
     border-top: 1px solid rgba(255, 255, 255, 0.6);
@@ -115,6 +115,7 @@ body {
     font: normal normal normal 16px arial;
     color: #ffffff;
     text-decoration: none;
+    right: 13px
 
 }
 /*.btn_telegram_share:focus*/
@@ -241,7 +242,7 @@ body {
     animation: win2 200ms steps(2, end) infinite;
 }
 .slots .reel {
-    position: fixed;
+    position: relative;
     width: 79px;
     height: 237px;
     border: 1px solid rgba(0, 0, 0, 0.3);
