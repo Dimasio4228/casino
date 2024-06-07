@@ -46,7 +46,7 @@ width: 133px;
     flex: 0 0 auto;
 }
 #auto-spin-button {
-    margin-right: -60px; /* сдвигает Auto Spin на 20px влево */
+    margin-right: 60px; /* сдвигает Auto Spin на 20px влево */
 }
 
 
