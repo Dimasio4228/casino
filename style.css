@@ -20,10 +20,36 @@ html, body {
 }
 .buttons {
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items at the start */
-    gap: 20px;
+    justify-content: space-between; //Это распределяет пространство между кнопками.
+align-items: center; //Это помещает кнопки на одну горизонталь.
+position: fixed; //Это делает его фиксированным;
+    bottom: 50px; //Это смещает контейнер с кнопками снизу вверх.
+left: 55px; //Это смещает контейнер с кнопками слева направо.
+right: 55px; //Это смещает контейнер с кнопками справа налево.
+padding: 0; //Обнулим отступы внутри контейнера чтобы не было смещения элементов внутри контейнера.
 }
+
+#spin-button,
+#auto-spin-button {
+    position: relative;
+    display: block;
+    margin: 20px auto 0;
+    background: linear-gradient(goldenrod, darkgoldenrod 100%);
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
+    cursor: pointer;
+    right:55px;
+    left: 55px;
+    flex: 0 0 auto;
+}
+
 
 #spin-button,
 #auto-spin-button {
