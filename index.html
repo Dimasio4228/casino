@@ -11,8 +11,10 @@
 
 <div class="container">
     <div id="win" class="win">Win</div>
-    <div class="balance">Balance: $<span id="balance"></span></div>
-
+    <div class="balance-share-wrapper">
+        <div class="balance">Balance: $<span id="balance"></span></div>
+        <button id="share-button" class="btn_telegram_share">Join Friends</button>
+    </div>
     <div class="slots">
         <div class="reel"></div>
         <div class="reel"></div>
@@ -25,7 +27,7 @@
             <p id="timer">06:00:00</p>
         </div>
     </div>
-    <button id="share-button" class="btn_telegram_share">Join Friends</button>
+
 
     <script>
         document.querySelector("#share-button").addEventListener("click", function() {

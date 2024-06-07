@@ -271,7 +271,7 @@ function createCoin(slotElement) {
 const autoSpinButton = document.getElementById('auto-spin-button');
 let autoSpinInterval;
 let timerInterval
-let timeLeft = 6 * 60 * 60;
+let timeLeft =  60;
 const timerElement = document.getElementById('timer');
 
 function startTimer() {
