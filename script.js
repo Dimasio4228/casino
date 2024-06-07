@@ -352,8 +352,9 @@ taskSection.addEventListener('click', () => {
         agreeButton.addEventListener('click', () => {
             agreeButton.disabled = true;
             agreeButton.style.color = "green";
-            sendData({data0:Task} );
+
             Task="1";
+            sendData(dataToBeSent );
         });
 
         // Добавляем все элементы в DOM
