@@ -85,7 +85,7 @@ body {
     width: 100%;
 }
 .balance {
-    width: 50%;
+
     color: goldenrod; /* Золотой цвет текста */
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Тень текста: отступ вправо, отступ вниз, размытие, цвет*/
     font-size: 33px; /* Размер шрифта (измените по нужному) */
@@ -95,7 +95,7 @@ body {
 }
 
 .btn_telegram_share {
-    width: 50%;
+
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -110,7 +110,7 @@ body {
     font: normal normal normal 16px arial;
     color: #ffffff;
     text-decoration: none;
-    position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
+
     top: 10px; /* Расстояние от верхнего края экрана */
     right: 10px; /* Расстояние от правого края экрана */
 }
