@@ -111,8 +111,6 @@ body {
     color: #ffffff;
     text-decoration: none;
 
-    top: 10px; /* Расстояние от верхнего края экрана */
-    right: 10px; /* Расстояние от правого края экрана */
 }
 /*.btn_telegram_share:focus*/
 .btn_telegram_share:hover
@@ -124,18 +122,14 @@ body {
     background: linear-gradient(to bottom, #65ccff, #65ccff);
     color: #ffffff;
     text-decoration: none;
-    position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
-    top: 10px; /* Расстояние от верхнего края экрана */
-    right: 10px; /* Расстояние от правого края экрана */
+
 }
 .btn_telegram_share:active {
     background: #32668d;
     background: -webkit-gradient(linear, left top, left bottom, from(#32668d), to(#54aaeb));
     background: -moz-linear-gradient(top, #32668d, #54aaeb);
     background: linear-gradient(to bottom, #32668d, #54aaeb);
-    position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
-    top: 10px; /* Расстояние от верхнего края экрана */
-    right: 10px; /* Расстояние от правого края экрана */
+
 }
 .btn_telegram_share:before{
     content:  "\0000a0";
