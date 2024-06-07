@@ -42,11 +42,11 @@ html, body {
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
     text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
     cursor: pointer;
-width: 133px;
+width: 120px;
     flex: 0 0 auto;
 }
 #auto-spin-button {
-    margin-right: 44px; /* сдвигает Auto Spin на 20px влево */
+    margin-right: 30px; /* сдвигает Auto Spin на 20px влево */
 }
 
 
@@ -85,6 +85,7 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
     border-radius: 3px;
+    margin-right: -20px; /* сдвигает Auto Spin на 20px влево */
 }
 .balance-share-wrapper {
     display: flex;
@@ -263,6 +264,7 @@ body {
     background-position: 0 0;
     background-repeat: repeat-y;
     background-size: 100% auto;
+    margin-right: -20px;
 }
 .slots .reel::after {
     content: "";
