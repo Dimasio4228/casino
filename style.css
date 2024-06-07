@@ -68,8 +68,6 @@ body {
     width: 277px;
     height: 237px;
     display: flex;
-     /* центрирует барабаны по горизонтали */
-    align-items: center;
     justify-content: space-between;
     padding: 24px;
     background: linear-gradient(45deg, palegoldenrod 0%, goldenrod 100%);
@@ -81,13 +79,10 @@ body {
     border-radius: 3px;
 }
 .balance-share-wrapper {
-    position: fixed;
-    top: 23px;
-    left: 0;
-    right: 0;
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 .balance {
 
@@ -100,8 +95,8 @@ body {
 }
 
 .btn_telegram_share {
-    top: 23px;
-    position: fixed;
+
+    display: inline-block;
     text-align: center;
     vertical-align: middle;
     margin-right: 7px;
@@ -115,8 +110,9 @@ body {
     font: normal normal normal 16px arial;
     color: #ffffff;
     text-decoration: none;
-    right: 13px
-
+    position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
+    top: 33px; /* Расстояние от верхнего края экрана */
+    right: 10px; /* Расстояние от правого края экрана */
 }
 /*.btn_telegram_share:focus*/
 .btn_telegram_share:hover
@@ -128,18 +124,22 @@ body {
     background: linear-gradient(to bottom, #65ccff, #65ccff);
     color: #ffffff;
     text-decoration: none;
-
+    position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
+    top: 33px; /* Расстояние от верхнего края экрана */
+    right: 10px; /* Расстояние от правого края экрана */
 }
 .btn_telegram_share:active {
     background: #32668d;
     background: -webkit-gradient(linear, left top, left bottom, from(#32668d), to(#54aaeb));
     background: -moz-linear-gradient(top, #32668d, #54aaeb);
     background: linear-gradient(to bottom, #32668d, #54aaeb);
-
+    position: fixed; /* Это позволит вам позиционировать кнопку в любой точке экрана */
+    top: 33px; /* Расстояние от верхнего края экрана */
+    right: 10px; /* Расстояние от правого края экрана */
 }
 .btn_telegram_share:before{
     content:  "\0000a0";
-
+    display: inline-block;
     height: 24px;
     width: 24px;
     line-height: 24px;
