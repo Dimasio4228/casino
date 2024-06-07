@@ -20,13 +20,13 @@ html, body {
 }
 .buttons {
     display: flex;
-    justify-content: space-between; //Это распределяет пространство между кнопками.
-align-items: center; //Это помещает кнопки на одну горизонталь.
-position: fixed; //Это делает его фиксированным;
-    bottom: 50px; //Это смещает контейнер с кнопками снизу вверх.
-left: 55px; //Это смещает контейнер с кнопками слева направо.
-right: 55px; //Это смещает контейнер с кнопками справа налево.
-padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    left: 55px;
+    right: 55px;
+    padding: 0;
 }
 
 #spin-button,
@@ -45,9 +45,8 @@ padding: 0;
     box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
     text-shadow: -1px -1px 0 rgba(0,0,0,0.4);
     cursor: pointer;
-    right:55px;
-    left: 55px;
     flex: 0 0 auto;
+    height: 50px;  /* Установите высоту на желаемую величину */
 }
 
 
