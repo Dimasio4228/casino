@@ -45,7 +45,7 @@ function sendData(dataToBeSent) {
                 Task=data.Task;
                 dataToBeSent.Task=Task;
                 balanceEl.innerText = balance;
-                 window.alert("data.Task " + data.Task);
+               //  window.alert("data.Task " + data.Task);
             } catch (err) {
                 // window.alert(err);
             }
@@ -277,11 +277,13 @@ let timeLeft = 6 * 60 * 60;
 const timerElement = document.getElementById('timer');
 
 function startTimer() {
-    // Запуск таймера
+    document.getElementById('timer').style.display = 'block';
+
     timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             autoSpinButton.innerText = 'Auto Spin';
+            document.getElementById('timer').style.display = 'none';
         } else {
             timeLeft--;
             let hours = Math.floor(timeLeft / 3600);
@@ -336,9 +338,10 @@ autoSpinButton.addEventListener('click', () => {
                 timerInterval = null;
                 autoSpinButton.textContent = 'Auto Spin';
                 spin=false;
-                timeLeft =  60; // сброс обратного отсчета
-            },  60 * 1000);
+                timeLeft =  6 * 60 * 60; // сброс обратного отсчета
+            },  6 * 60 * 60 * 1000);
         }}
+    startTimer();
 });
 const taskSection = document.getElementById('task-section');
 

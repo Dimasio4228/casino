@@ -53,6 +53,8 @@ html, body {
     margin-right: 0px; /* сдвигает Auto Spin на 20px влево */
     font-size: 22px;
     margin-top: 10px;
+    display: none;
+
 }
 
 #spin-button:hover,
