@@ -278,7 +278,8 @@ const timerElement = document.getElementById('timer');
 
 
 function startTimer() {
-    const timerElement = document.getElementById('timer');
+    document.getElementById('timer').style.display = 'block';
+
 
     autoSpinInterval = setInterval(() => {
         if (timeLeft <= 0) {
