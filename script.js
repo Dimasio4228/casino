@@ -340,7 +340,11 @@ taskSection.addEventListener('click', () => {
 
         // Создаем задачу
         const taskItem = document.createElement('li');
-        const taskText = document.createTextNode('Activate Auto Spin. Price 100000$');
+        if (Task=="3"){
+            const taskText = document.createTextNode('Mission Acomplished');
+        }
+        else
+        { const taskText = document.createTextNode('Activate Auto Spin. Price 100000$');
 
         // Создаем "согласиться" кнопку
         const agreeButton = document.createElement('button');
@@ -365,7 +369,7 @@ taskSection.addEventListener('click', () => {
         taskItem.appendChild(agreeButton);
         taskList.appendChild(taskItem);
         taskSection.appendChild(taskList);
-    } else if (taskList.style.visibility === "visible"){
+    }} else if (taskList.style.visibility === "visible"){
         taskList.style.visibility = 'hidden';
     } else {
         taskList.style.visibility = 'visible';
