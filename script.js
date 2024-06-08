@@ -336,15 +336,10 @@ taskList.style.visibility = 'visible'; /* Сделать его видимым �
 
 // Создаем задачу
 const taskItem = document.createElement('li');
-let taskList = document.getElementById('task-list');
+//let taskList = document.getElementById('task-list');
 taskSection.addEventListener('click', () => {
-    if (!taskList) {
-        taskList = document.createElement('ol');
-        taskList.id = 'task-list';
-        taskList.style.visibility = 'visible'; /* Сделать его видимым сразу после создания */
+    if ( taskList) {
 
-        // Создаем задачу
-        const taskItem = document.createElement('li');
         if (Task=="3"){
             const taskText = document.createTextNode('Mission Acomplished');
         }
