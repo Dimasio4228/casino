@@ -330,7 +330,6 @@ autoSpinButton.addEventListener('click', () => {
 const taskSection = document.getElementById('task-section');
 
 let taskList = document.getElementById('task-list');
-
 taskSection.addEventListener('click', () => {
     if (!taskList) {
         taskList = document.createElement('ol');
@@ -343,7 +342,7 @@ taskSection.addEventListener('click', () => {
         // Создаем "согласиться" кнопку
         const agreeButton = document.createElement('button');
         agreeButton.style.color = "gold";
-        if(Task=="1"){
+        if(Task==="1"){
             agreeButton.style.color = "green";
             agreeButton.disabled = true;
         }
@@ -363,10 +362,11 @@ taskSection.addEventListener('click', () => {
         taskItem.appendChild(agreeButton);
         taskList.appendChild(taskItem);
         taskSection.appendChild(taskList);
-    } else if (taskList.style.display === "block"){
-        taskList.style.display = "none";
+        taskList.style.visibility = 'hidden'; /* Hide initially */
+    } else if (taskList.style.visibility === "visible"){
+        taskList.style.visibility = 'hidden';
     } else {
-        taskList.style.display = "block";
+        taskList.style.visibility = 'visible';
     }
 });
 
