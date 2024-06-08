@@ -343,6 +343,9 @@ body {
 #task-list {
     list-style-type: none;
     padding: 0;
+    position: absolute;
+    top: 0; /* Чтобы он оставался в верхней части `taskSection` */
+    left: 0; /* И слева */
 }
 
 #task-list li {
