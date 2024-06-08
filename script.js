@@ -276,22 +276,24 @@ let timerInterval
 let timeLeft = 6 * 60 * 60;
 const timerElement = document.getElementById('timer');
 
-function startTimer() {
-    document.getElementById('timer').style.display = 'block';
 
-    timerInterval = setInterval(() => {
+function startTimer() {
+    autoSpinInterval = setInterval(() => {
         if (timeLeft <= 0) {
-            clearInterval(timerInterval);
+            clearInterval(autoSpinInterval);
             autoSpinButton.innerText = 'Auto Spin';
-            document.getElementById('timer').style.display = 'none';
         } else {
             timeLeft--;
             let hours = Math.floor(timeLeft / 3600);
             let minutes = Math.floor((timeLeft % 3600) / 60);
             let seconds = timeLeft % 60;
-            timerElement.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            timerElement.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
         }
-    }, 6 * 60 * 60 * 1000);
+    }, 1000);
+}
+
+function pad(number) {
+    return number.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
 }
 let spin=false;
 autoSpinButton.addEventListener('click', () => {
