@@ -358,7 +358,7 @@ taskSection.addEventListener('click', () => {
         agreeButton.addEventListener('click', () => {
             agreeButton.disabled = true;
             agreeButton.style.color = "green";
-
+//
             Task="1";
             dataToBeSent.Task=Task;
             sendData(dataToBeSent );
