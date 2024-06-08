@@ -187,7 +187,8 @@ function rollAll()  {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance
+                        balance: balance,
+                        Task:   Task
                     };
                     sendData(dataToBeSent
                     );
@@ -198,7 +199,8 @@ function rollAll()  {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance
+                        balance: balance,
+                        Task:   Task
                     };
                     sendData(dataToBeSent
                     );
@@ -216,7 +218,8 @@ function rollAll()  {
                     uid: uid,
                     username: name,
                     user: username,
-                    balance: balance
+                    balance: balance,
+                    Task:   Task
                 };
                 sendData(dataToBeSent
                 );
@@ -299,8 +302,8 @@ autoSpinButton.addEventListener('click', () => {
     console.log(" dataToBeSent.Task Auto "+dataToBeSent.Task+ "Task"+Task);
     if (Task=="0")
     { return;}
-    if(Task=="1"&&balance >= 30000) {
-        balance =balance -30000;
+    if(Task=="1"&&balance >= 7000) {
+        balance =balance -7000;
         dataToBeSent.balance=balance;
         dataToBeSent.Task="3";
         Task="3";
