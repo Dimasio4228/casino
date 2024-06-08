@@ -379,7 +379,10 @@ taskSection.addEventListener('click', () => {
             sendData(dataToBeSent );
             console.log(" dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
         });
-        if (Task=="3"){return;}
+        if (Task=="3"){
+            taskText.nodeValue="Mission Accomplished"; // изменить текст задачи здесь
+            return;
+        }
         // Добавляем все элементы в DOM
         taskItem.appendChild(taskText);
         taskItem.appendChild(agreeButton);
