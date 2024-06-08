@@ -42,12 +42,11 @@ function sendData(dataToBeSent) {
 
             try {
                 balance = data.balance;
-                if(data.Task) {
-                    Task = data.Task;
-                    dataToBeSent.Task=Task;
+                if(data.Task){
+                Task=data.Task;
+
                 }
                 balanceEl.innerText = balance;
-                console.log(" dataToBeSent.Task "+dataToBeSent.Task+ "Task"+Task);
                 // window.alert("bal " + data.balance);
             } catch (err) {
                 // window.alert(err);
@@ -73,9 +72,9 @@ const balanceEl = document.getElementById('balance');
 const winEl = document.getElementById('win');
 
 // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
-//iconMap = ["lcoin", "goldcoin", "Usdt", "Bluecoin", "Ton", "Sol", "Riple", "BTC", "Eth"],
+    //iconMap = ["lcoin", "goldcoin", "Usdt", "Bluecoin", "Ton", "Sol", "Riple", "BTC", "Eth"],
 // Width of the icons
-icon_width = 79,
+    icon_width = 79,
 // Height of one icon in the strip
     icon_height = 79,
 // Number of icons in the strip
@@ -182,17 +181,16 @@ function rollAll()  {
                 });
                 if (indexes[0] === indexes[1] && indexes[1] === indexes[2]) {
 
+
                     balance += 1000;
                     dataToBeSent = {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance,
-                        Task:   Task
+                        balance: balance
                     };
                     sendData(dataToBeSent
                     );
-                    console.log(" dataToBeSent.Task 1 "+dataToBeSent.Task+ "Task"+Task);
                 } else {
                     balance += 500;
 
@@ -200,12 +198,10 @@ function rollAll()  {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance,
-                        Task:   Task
+                        balance: balance
                     };
                     sendData(dataToBeSent
                     );
-                    console.log(" dataToBeSent.Task 2"+dataToBeSent.Task+ "Task"+Task);
                 }
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
@@ -220,12 +216,10 @@ function rollAll()  {
                     uid: uid,
                     username: name,
                     user: username,
-                    balance: balance,
-                    Task:   Task
+                    balance: balance
                 };
                 sendData(dataToBeSent
                 );
-                console.log(" dataToBeSent.Task 3"+dataToBeSent.Task+ "Task"+Task);
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
                 balanceEl.innerText = balance;
