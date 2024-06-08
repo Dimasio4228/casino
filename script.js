@@ -43,6 +43,7 @@ function sendData(dataToBeSent) {
             try {
                 balance = data.balance;
                 Task=data.Task;
+                dataToBeSent.Task=Task;
                 balanceEl.innerText = balance;
                 // window.alert("bal " + data.balance);
             } catch (err) {
@@ -184,7 +185,8 @@ function rollAll()  {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance
+                        balance: balance,
+                        Task:   Task
                     };
                     sendData(dataToBeSent
                     );
@@ -195,7 +197,8 @@ function rollAll()  {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance
+                        balance: balance,
+                        Task:   Task
                     };
                     sendData(dataToBeSent
                     );
@@ -213,7 +216,8 @@ function rollAll()  {
                     uid: uid,
                     username: name,
                     user: username,
-                    balance: balance
+                    balance: balance,
+                    Task:   Task
                 };
                 sendData(dataToBeSent
                 );
@@ -293,7 +297,7 @@ function startTimer() {
 }
 let spin=false;
 autoSpinButton.addEventListener('click', () => {
-  if (Task==0)
+  if (Task=="0")
   { return;}
     if (autoSpinInterval) {
         // Останавливаем вращение и таймер
