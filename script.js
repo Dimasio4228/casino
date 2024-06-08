@@ -47,7 +47,7 @@ function sendData(dataToBeSent) {
 
 
                 balanceEl.innerText = balance;
-                // window.alert("bal " + data.balance);
+                 window.alert("data.Task " + data.Task);
             } catch (err) {
                 // window.alert(err);
             }
@@ -140,11 +140,7 @@ const roll = (reel, offset = 0, target = null) => {
     });
 };
 let lossCount = 0; // Сч
-/**
- * Roll all reels, when promise resolve
- /**
- * Roll all reels, when promise resolves roll again
- */
+
 let check=true;
 
 function rollAll()  {
