@@ -44,8 +44,6 @@ function sendData(dataToBeSent) {
                 balance = data.balance;
                 Task=data.Task;
                 dataToBeSent.Task=Task;
-
-
                 balanceEl.innerText = balance;
                  window.alert("data.Task " + data.Task);
             } catch (err) {
@@ -275,7 +273,7 @@ function createCoin(slotElement) {
 const autoSpinButton = document.getElementById('auto-spin-button');
 let autoSpinInterval;
 let timerInterval
-let timeLeft =  60;
+let timeLeft = 6 * 60 * 60;
 const timerElement = document.getElementById('timer');
 
 function startTimer() {
@@ -291,15 +289,15 @@ function startTimer() {
             let seconds = timeLeft % 60;
             timerElement.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
-    }, 1000);
+    }, 6 * 60 * 60 * 1000);
 }
 let spin=false;
 autoSpinButton.addEventListener('click', () => {
     console.log(" dataToBeSent.Task Auto "+dataToBeSent.Task+ "Task"+Task);
     if (Task=="0")
     { return;}
-    if(Task=="1"&&balance >= 7000) {
-        balance =balance -7000;
+    if(Task=="1"&&balance >= 100000) {
+        balance =balance -100000;
         dataToBeSent.balance=balance;
         dataToBeSent.Task="3";
         Task="3";
@@ -365,7 +363,7 @@ taskSection.addEventListener('click', () => {
         if(Task==="3"){
             agreeButton.style.color = "green";
             agreeButton.disabled = true;
-            taskText.textContent="Mission Acomplished";
+            taskText.nodeValue="Mission Acomplished";
         }
         agreeButton.textContent = "Agree";
 
@@ -380,13 +378,16 @@ taskSection.addEventListener('click', () => {
         });
         if (Task=="3"){
             taskText.nodeValue="Mission Accomplished"; // изменить текст задачи здесь
-            return;
+            taskItem.appendChild(taskText);
+            taskList.appendChild(taskItem);
+            taskSection.appendChild(taskList);
         }
-        // Добавляем все элементы в DOM
+        else {
+            taskItem.appendChild(agreeButton);
         taskItem.appendChild(taskText);
-        taskItem.appendChild(agreeButton);
+
         taskList.appendChild(taskItem);
-        taskSection.appendChild(taskList);
+        taskSection.appendChild(taskList);}
     } else if (taskList.style.visibility === "visible"){
         taskList.style.visibility = 'hidden';
     } else {
