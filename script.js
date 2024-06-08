@@ -42,8 +42,12 @@ function sendData(dataToBeSent) {
 
             try {
                 balance = data.balance;
-                Task=data.Task;
+                if(data.Task) {
+                    Task = data.Task;
+                    dataToBeSent.Task=Task;
+                }
                 balanceEl.innerText = balance;
+                console.log(" dataToBeSent.Task "+dataToBeSent.Task+ "Task"+Task);
                 // window.alert("bal " + data.balance);
             } catch (err) {
                 // window.alert(err);
@@ -69,9 +73,9 @@ const balanceEl = document.getElementById('balance');
 const winEl = document.getElementById('win');
 
 // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
-    //iconMap = ["lcoin", "goldcoin", "Usdt", "Bluecoin", "Ton", "Sol", "Riple", "BTC", "Eth"],
+//iconMap = ["lcoin", "goldcoin", "Usdt", "Bluecoin", "Ton", "Sol", "Riple", "BTC", "Eth"],
 // Width of the icons
-    icon_width = 79,
+icon_width = 79,
 // Height of one icon in the strip
     icon_height = 79,
 // Number of icons in the strip
@@ -178,16 +182,17 @@ function rollAll()  {
                 });
                 if (indexes[0] === indexes[1] && indexes[1] === indexes[2]) {
 
-
                     balance += 1000;
                     dataToBeSent = {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance
+                        balance: balance,
+                        Task:   Task
                     };
                     sendData(dataToBeSent
                     );
+                    console.log(" dataToBeSent.Task 1 "+dataToBeSent.Task+ "Task"+Task);
                 } else {
                     balance += 500;
 
@@ -195,10 +200,12 @@ function rollAll()  {
                         uid: uid,
                         username: name,
                         user: username,
-                        balance: balance
+                        balance: balance,
+                        Task:   Task
                     };
                     sendData(dataToBeSent
                     );
+                    console.log(" dataToBeSent.Task 2"+dataToBeSent.Task+ "Task"+Task);
                 }
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
@@ -213,10 +220,12 @@ function rollAll()  {
                     uid: uid,
                     username: name,
                     user: username,
-                    balance: balance
+                    balance: balance,
+                    Task:   Task
                 };
                 sendData(dataToBeSent
                 );
+                console.log(" dataToBeSent.Task 3"+dataToBeSent.Task+ "Task"+Task);
                 winEl.classList.add('show');
                 setTimeout(() => winEl.classList.remove('show'), 2000);
                 balanceEl.innerText = balance;
@@ -293,41 +302,52 @@ function startTimer() {
 }
 let spin=false;
 autoSpinButton.addEventListener('click', () => {
-  if (Task==0)
-  { return;}
-    if (autoSpinInterval) {
-        // Останавливаем вращение и таймер
-        clearInterval(autoSpinInterval);
-        clearInterval(timerInterval);
-        autoSpinInterval = null;
-        timerInterval = null;
-        autoSpinButton.textContent = 'Auto Spin';
-        spin=false;
+    console.log(" dataToBeSent.Task Auto "+dataToBeSent.Task+ "Task"+Task);
+    if (Task=="0")
+    { return;}
+    if(Task=="1"&&balance >= 30000) {
+        balance =balance -30000;
+        dataToBeSent.balance=balance;
+        dataToBeSent.Task="3";
+        Task="3";
+        balanceEl.innerText = balance;
+        sendData(dataToBeSent)
 
-    } else {
-        // Запускаем вращение и таймер
-        autoSpinInterval = setInterval(() => {
-            if (balance >= 100 && check === true) {
-                rollAll();
-                spinButton.style.visibility = 'hidden';
-                spin=true;
-            }
-        }, 3000);
-
-        autoSpinButton.textContent = 'Stop Spin';
-        startTimer();
-
-        // Через 6 часов останавливаем все
-        setTimeout(() => {
+    }
+    if(Task=="3"){
+        if (autoSpinInterval) {
+            // Останавливаем вращение и таймер
             clearInterval(autoSpinInterval);
             clearInterval(timerInterval);
             autoSpinInterval = null;
             timerInterval = null;
             autoSpinButton.textContent = 'Auto Spin';
             spin=false;
-            timeLeft =  60; // сброс обратного отсчета
-        },  60 * 1000);
-    }
+
+        } else {
+            // Запускаем вращение и таймер
+            autoSpinInterval = setInterval(() => {
+                if (balance >= 100 && check === true) {
+                    rollAll();
+                    spinButton.style.visibility = 'hidden';
+                    spin=true;
+                }
+            }, 3000);
+
+            autoSpinButton.textContent = 'Stop Spin';
+            startTimer();
+
+            // Через 6 часов останавливаем все
+            setTimeout(() => {
+                clearInterval(autoSpinInterval);
+                clearInterval(timerInterval);
+                autoSpinInterval = null;
+                timerInterval = null;
+                autoSpinButton.textContent = 'Auto Spin';
+                spin=false;
+                timeLeft =  60; // сброс обратного отсчета
+            },  60 * 1000);
+        }}
 });
 const taskSection = document.getElementById('task-section');
 
@@ -340,11 +360,7 @@ taskSection.addEventListener('click', () => {
 
         // Создаем задачу
         const taskItem = document.createElement('li');
-        if (Task=="3"){
-            const taskText = document.createTextNode('Mission Acomplished');
-        }
-        else
-        { const taskText = document.createTextNode('Activate Auto Spin. Price 100000$');
+        const taskText = document.createTextNode('Activate Auto Spin. Price 100000$');
 
         // Создаем "согласиться" кнопку
         const agreeButton = document.createElement('button');
@@ -353,23 +369,29 @@ taskSection.addEventListener('click', () => {
             agreeButton.style.color = "green";
             agreeButton.disabled = true;
         }
+        if(Task==="3"){
+            agreeButton.style.color = "green";
+            agreeButton.disabled = true;
+            taskText.textContent="Mission Acomplished";
+        }
         agreeButton.textContent = "Agree";
 
         agreeButton.addEventListener('click', () => {
             agreeButton.disabled = true;
             agreeButton.style.color = "green";
-
+            if(Task==="3"){return;}
             Task="1";
             dataToBeSent.Task=Task;
             sendData(dataToBeSent );
+            console.log(" dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
         });
-
+        if (Task=="3"){return;}
         // Добавляем все элементы в DOM
         taskItem.appendChild(taskText);
         taskItem.appendChild(agreeButton);
         taskList.appendChild(taskItem);
         taskSection.appendChild(taskList);
-    }} else if (taskList.style.visibility === "visible"){
+    } else if (taskList.style.visibility === "visible"){
         taskList.style.visibility = 'hidden';
     } else {
         taskList.style.visibility = 'visible';
