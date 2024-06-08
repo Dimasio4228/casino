@@ -278,10 +278,13 @@ const timerElement = document.getElementById('timer');
 
 
 function startTimer() {
+    const timerElement = document.getElementById('timer');
+
     autoSpinInterval = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(autoSpinInterval);
             autoSpinButton.innerText = 'Auto Spin';
+            document.getElementById('timer').style.display = 'none';
         } else {
             timeLeft--;
             let hours = Math.floor(timeLeft / 3600);
