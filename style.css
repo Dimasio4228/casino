@@ -321,14 +321,14 @@ body {
 .button-container {
     display: flex;
     justify-content: space-around;
-
+margin-bottom: -111px;
     padding: 10px;
 }
 
 #task-section {
     cursor: pointer;
     color: white;
-    //padding: 10px;
+    margin-bottom: -110px;
 }
 
 #task-section:hover {
@@ -342,8 +342,8 @@ body {
 
 #task-list {
     list-style-type: none;
-    padding: 1px;
-    position: absolute;
+    padding: 0;
+
     top: 0; /* Чтобы он оставался в верхней части `taskSection` */
     left: 0; /* И слева */
 }

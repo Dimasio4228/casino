@@ -330,7 +330,12 @@ autoSpinButton.addEventListener('click', () => {
     }
 });
 const taskSection = document.getElementById('task-section');
+taskList = document.createElement('ol');
+taskList.id = 'task-list';
+taskList.style.visibility = 'visible'; /* Сделать его видимым сразу после создания */
 
+// Создаем задачу
+const taskItem = document.createElement('li');
 let taskList = document.getElementById('task-list');
 taskSection.addEventListener('click', () => {
     if (!taskList) {
