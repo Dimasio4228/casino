@@ -42,10 +42,10 @@ function sendData(dataToBeSent) {
 
             try {
                 balance = data.balance;
-                if(data.Task){
                 Task=data.Task;
+                dataToBeSent.Task=Task;
 
-                }
+
                 balanceEl.innerText = balance;
                 // window.alert("bal " + data.balance);
             } catch (err) {
