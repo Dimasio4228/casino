@@ -293,6 +293,8 @@ function startTimer() {
 }
 let spin=false;
 autoSpinButton.addEventListener('click', () => {
+  if (Task==0)
+  { return;}
     if (autoSpinInterval) {
         // Останавливаем вращение и таймер
         clearInterval(autoSpinInterval);
@@ -334,6 +336,7 @@ taskSection.addEventListener('click', () => {
     if (!taskList) {
         taskList = document.createElement('ol');
         taskList.id = 'task-list';
+        taskList.style.visibility = 'visible'; /* Сделать его видимым сразу после создания */
 
         // Создаем задачу
         const taskItem = document.createElement('li');
@@ -362,14 +365,11 @@ taskSection.addEventListener('click', () => {
         taskItem.appendChild(agreeButton);
         taskList.appendChild(taskItem);
         taskSection.appendChild(taskList);
-        taskList.style.visibility = 'hidden'; /* Hide initially */
     } else if (taskList.style.visibility === "visible"){
         taskList.style.visibility = 'hidden';
     } else {
         taskList.style.visibility = 'visible';
     }
 });
-
-
 
 window.onload = getData;
