@@ -330,16 +330,16 @@ autoSpinButton.addEventListener('click', () => {
     }
 });
 const taskSection = document.getElementById('task-section');
-taskList = document.createElement('ol');
-taskList.id = 'task-list';
-taskList.style.visibility = 'visible'; /* Сделать его видимым сразу после создания */
 
-// Создаем задачу
-const taskItem = document.createElement('li');
-//let taskList = document.getElementById('task-list');
+let taskList = document.getElementById('task-list');
 taskSection.addEventListener('click', () => {
-    if ( taskList) {
+    if (!taskList) {
+        taskList = document.createElement('ol');
+        taskList.id = 'task-list';
+        taskList.style.visibility = 'visible'; /* Сделать его видимым сразу после создания */
 
+        // Создаем задачу
+        const taskItem = document.createElement('li');
         if (Task=="3"){
             const taskText = document.createTextNode('Mission Acomplished');
         }
@@ -358,7 +358,7 @@ taskSection.addEventListener('click', () => {
         agreeButton.addEventListener('click', () => {
             agreeButton.disabled = true;
             agreeButton.style.color = "green";
-//
+
             Task="1";
             dataToBeSent.Task=Task;
             sendData(dataToBeSent );
