@@ -45,7 +45,7 @@ function sendData(dataToBeSent) {
                 Task=data.Task;
                 dataToBeSent.Task=Task;
                 balanceEl.innerText = balance;
-               //  window.alert("data.Task " + data.Task);
+                window.alert("Task " + data.Task);
             } catch (err) {
                 // window.alert(err);
             }
