@@ -356,6 +356,12 @@ const taskText = document.getElementById('task-text');
 taskSection.addEventListener('click', () => {
     taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
     taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
+    if(Task === "3"||Task === "1") {
+        agreeButton.style.color = "green";
+        agreeButton.disabled =true;
+        taskText.textContent="Waiting your wun!";
+
+    }
 });
 
 agreeButton.onclick = function() {
@@ -371,7 +377,6 @@ agreeButton.onclick = function() {
     console.log("dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
     window.alert("Mission Activated!");
 
-    agreeButton.style.color = (Task !== "0") ? "green" : "gold";
-    agreeButton.disabled = (Task === "1" || Task === "3");
+
 };
 window.onload = getData;
