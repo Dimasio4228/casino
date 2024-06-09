@@ -318,6 +318,7 @@ autoSpinButton.addEventListener('click', () => {
             // Останавливаем вращение и таймер
             clearInterval(autoSpinInterval);
             clearInterval(timerInterval);
+            clearTimeout(autoStopTimeout);
             autoSpinInterval = null;
             timerInterval = null;
             autoSpinButton.textContent = 'Auto Spin';

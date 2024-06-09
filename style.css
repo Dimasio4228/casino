@@ -25,10 +25,10 @@ html, body {
     gap: 20px;
 
 }
-
+button:focus { outline:0 !important; }
 #spin-button,
 #auto-spin-button {
-    outline: none !important;
+    outline:0 !important;
 
     display: block;
     margin: 20px auto 0;
