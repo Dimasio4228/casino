@@ -28,7 +28,7 @@ html, body {
 
 #spin-button,
 #auto-spin-button {
-
+    outline: none;
     display: block;
     margin: 20px auto 0;
     background: linear-gradient(goldenrod, darkgoldenrod 100%);
@@ -53,7 +53,7 @@ html, body {
     margin-right: 0px; /* сдвигает Auto Spin на 20px влево */
     font-size: 22px;
     margin-top: 10px;
-    display: none;
+    visibility: hidden;
 
 }
 

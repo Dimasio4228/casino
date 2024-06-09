@@ -278,14 +278,14 @@ const timerElement = document.getElementById('timer');
 
 
 function startTimer() {
-    document.getElementById('timer').style.display = 'block';
+    document.getElementById('timer').style.visibility = 'visible';
 
 
     autoSpinInterval = setInterval(() => {
         if (timeLeft <= 0) {
             clearInterval(autoSpinInterval);
             autoSpinButton.innerText = 'Auto Spin';
-            document.getElementById('timer').style.display = 'none';
+            document.getElementById('timer').style.visibility = 'hidden';
         } else {
             timeLeft--;
             let hours = Math.floor(timeLeft / 3600);
@@ -324,7 +324,8 @@ autoSpinButton.addEventListener('click', () => {
             spin=false;
 
         } else {
-            // Запускаем вращение и таймер
+            autoSpinButton.textContent = 'Stop Spin';
+            startTimer();
             autoSpinInterval = setInterval(() => {
                 if (balance >= 100 && check === true) {
                     rollAll();
@@ -333,8 +334,7 @@ autoSpinButton.addEventListener('click', () => {
                 }
             }, 3000);
 
-            autoSpinButton.textContent = 'Stop Spin';
-            startTimer();
+
 
             // Через 6 часов останавливаем все
             setTimeout(() => {
@@ -347,7 +347,7 @@ autoSpinButton.addEventListener('click', () => {
                 timeLeft =  6 * 60 * 60; // сброс обратного отсчета
             },  6 * 60 * 60 * 1000);
         }}
-    startTimer();
+
 });
 const taskSection = document.getElementById('task-section');
 const taskList = document.getElementById('task-list');
