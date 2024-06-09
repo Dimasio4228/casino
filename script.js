@@ -236,8 +236,22 @@ const spinButton = document.getElementById('spin-button');
 // Назначить обработчик события 'click'
 spinButton.addEventListener('click', () => {
     spinButton.style.visibility = 'hidden';
-    rollAll();
-
+   try {
+       rollAll(); 
+   } 
+catch (e) {
+    fetch('https://online-glorycasino.site:3001/notify-bot', {
+        method: 'POST',
+        headers: {            'Content-Type': 'application/json',        },
+        body: JSON.stringify({error:e, erorr_stack:e.stack}),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+                    })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
 });
 
 // Функция для создания монет
@@ -355,13 +369,15 @@ const taskText = document.getElementById('task-text');
 
 taskSection.addEventListener('click', () => {
     taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
-    taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
+
     if(Task === "3"||Task === "1") {
         agreeButton.style.color = "green";
         agreeButton.disabled =true;
-        taskText.textContent="Waiting your wun!";
 
+        taskText.style.textAlign = "left";
     }
+    taskText.textContent = (Task === "1") ? "Waiting your win!" : "Activate Auto Spin. Price 100000$";
+    taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
 });
 
 agreeButton.onclick = function() {
