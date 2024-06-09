@@ -28,7 +28,7 @@ html, body {
 
 #spin-button,
 #auto-spin-button {
-
+    -webkit-tap-highlight-color: transparent;
     display: block;
     margin: 20px auto 0;
     background: linear-gradient(goldenrod, darkgoldenrod 100%);
