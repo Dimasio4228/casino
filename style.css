@@ -48,11 +48,7 @@ html, body {
 #auto-spin-button {
     margin-right: 10px; /* сдвигает Auto Spin на 20px влево */
 }
-#auto-spin-button:active {
-    outline:0 !important; box-shadow: none;
-    position: absolute;
-    -webkit-tap-highlight-color: transparent;
-}
+
 #timer {
     margin-right: 0px; /* сдвигает Auto Spin на 20px влево */
     font-size: 22px;
@@ -132,7 +128,7 @@ body {
 }
 
 .btn_telegram_share {
-
+    -webkit-tap-highlight-color: transparent;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -200,7 +196,7 @@ body {
     gap: 10px;
 }
 .btn-social {
-
+    -webkit-tap-highlight-color: transparent;
      height: auto !important;
     background:none;
     box-shadow: 0px -1px 5px rgba(0,0,0,0.1);
@@ -332,6 +328,7 @@ margin-bottom: -111px;
 }
 
 #task-section {
+    -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: white;
     margin-bottom: -110px;
@@ -347,6 +344,7 @@ margin-bottom: -111px;
 }
 
 #task-list {
+    -webkit-tap-highlight-color: transparent;
     list-style-type: none;
     padding: 0;
 
@@ -355,6 +353,7 @@ margin-bottom: -111px;
 }
 
 #task-list li {
+    -webkit-tap-highlight-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
