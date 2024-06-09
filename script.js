@@ -295,7 +295,7 @@ function startTimer() {
         }
     }, 1000);
 }
-
+let autoStopTimeout = null;
 function pad(number) {
     return number.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
 }
@@ -322,7 +322,7 @@ autoSpinButton.addEventListener('click', () => {
             timerInterval = null;
             autoSpinButton.textContent = 'Auto Spin';
             spin=false;
-
+            autoStopTimeout=null;
         } else {
 
             autoSpinInterval = setInterval(() => {
@@ -337,7 +337,7 @@ autoSpinButton.addEventListener('click', () => {
             startTimer();
 
             // Через 6 часов останавливаем все
-            setTimeout(() => {
+            autoStopTimeout= setTimeout(() => {
                 clearInterval(autoSpinInterval);
                 clearInterval(timerInterval);
                 autoSpinInterval = null;
