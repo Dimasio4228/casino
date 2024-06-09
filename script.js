@@ -355,26 +355,23 @@ const taskText = document.getElementById('task-text');
 
 taskSection.addEventListener('click', () => {
     taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
+    taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
+});
+
+agreeButton.onclick = function() {
+    if(Task === "3"||Task === "1") {
+        return;
+    }
+
+    Task = "1";
+    dataToBeSent.Task = "1";
+    sendData(dataToBeSent);
+    agreeButton.style.color = "green";
+    agreeButton.disabled = true;
+    console.log("dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
+    window.alert("Mission Activated!");
 
     agreeButton.style.color = (Task !== "0") ? "green" : "gold";
     agreeButton.disabled = (Task === "1" || Task === "3");
-
-    agreeButton.onclick = function() {
-        if(Task === "3"||Task === "1") {
-            return;
-        }
-
-
-
-        Task = "1";
-        dataToBeSent.Task = "1";
-        sendData(dataToBeSent);
-        agreeButton.style.color = "green";
-        agreeButton.disabled = true;
-        console.log("dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
-        window.alert("Mission Activated!");
-    };
-
-    taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
-});
+};
 window.onload = getData;
