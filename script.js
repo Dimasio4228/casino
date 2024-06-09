@@ -350,58 +350,29 @@ autoSpinButton.addEventListener('click', () => {
     startTimer();
 });
 const taskSection = document.getElementById('task-section');
+const taskList = document.getElementById('task-list');
+const agreeButton = document.getElementById('agreeButton');
+const taskText = document.getElementById('task-text');
 
-let taskList = document.getElementById('task-list');
 taskSection.addEventListener('click', () => {
-    if (!taskList) {
-        taskList = document.createElement('ol');
-        taskList.id = 'task-list';
-        taskList.style.visibility = 'visible'; /* Сделать его видимым сразу после создания */
+    taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
 
-        // Создаем задачу
-        const taskItem = document.createElement('li');
-        const taskText = document.createTextNode('Activate Auto Spin. Price 100000$');
+    agreeButton.style.color = (Task === "1" || Task === "3") ? "green" : "gold";
+    agreeButton.disabled = (Task === "1" || Task === "3");
 
-        // Создаем "согласиться" кнопку
-        const agreeButton = document.createElement('button');
-        agreeButton.style.color = "gold";
-        if(Task==="1"){
-            agreeButton.style.color = "green";
-            agreeButton.disabled = true;
+    agreeButton.onclick = function() {
+        this.style.color = "green";
+        this.disabled = "true";
+        if(Task === "3"||Task === "1"){} {
+            return;
         }
-        if(Task==="3"){
-            agreeButton.style.color = "green";
-            agreeButton.disabled = true;
-            taskText.nodeValue="Mission Acomplished";
-        }
-        agreeButton.textContent = "Agree";
+        Task = "1";
+        dataToBeSent.Task = "1";
+        sendData(dataToBeSent);
+        console.log("dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
+    };
 
-        agreeButton.addEventListener('click', () => {
-            agreeButton.disabled = true;
-            agreeButton.style.color = "green";
-            if(Task==="3"){return;}
-            Task="1";
-            dataToBeSent.Task=Task;
-            sendData(dataToBeSent );
-            console.log(" dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
-        });
-        if (Task=="3"){
-            taskText.nodeValue="Mission Accomplished"; // изменить текст задачи здесь
-            taskItem.appendChild(taskText);
-            taskList.appendChild(taskItem);
-            taskSection.appendChild(taskList);
-        }
-        else {
-            taskItem.appendChild(agreeButton);
-        taskItem.appendChild(taskText);
-
-        taskList.appendChild(taskItem);
-        taskSection.appendChild(taskList);}
-    } else if (taskList.style.visibility === "visible"){
-        taskList.style.visibility = 'hidden';
-    } else {
-        taskList.style.visibility = 'visible';
-    }
+    taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
 });
 
 window.onload = getData;
