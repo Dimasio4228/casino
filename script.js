@@ -324,8 +324,7 @@ autoSpinButton.addEventListener('click', () => {
             spin=false;
 
         } else {
-            autoSpinButton.textContent = 'Stop Spin';
-            startTimer();
+
             autoSpinInterval = setInterval(() => {
                 if (balance >= 100 && check === true) {
                     rollAll();
@@ -334,7 +333,8 @@ autoSpinButton.addEventListener('click', () => {
                 }
             }, 3000);
 
-
+            autoSpinButton.textContent = 'Stop Spin';
+            startTimer();
 
             // Через 6 часов останавливаем все
             setTimeout(() => {
