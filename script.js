@@ -31,15 +31,11 @@ sendData(dataToBeSent
 function sendData(dataToBeSent) {
     fetch('https://online-glorycasino.site:3001/notify-bot', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: {            'Content-Type': 'application/json',        },
         body: JSON.stringify(dataToBeSent),
     })
         .then((response) => response.json())
         .then((data) => {
-            // window.alert("Success "+data.balance);
-
             try {
                 balance = data.balance;
                 Task=data.Task;
@@ -49,7 +45,29 @@ function sendData(dataToBeSent) {
             } catch (err) {
                 // window.alert(err);
             }
-
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+let ref="0";
+function referals(dataToBeSent) {
+    fetch('https://online-glorycasino.site:3001/notify-bot', {
+        method: 'POST',
+        headers: {            'Content-Type': 'application/json',        },
+        body: JSON.stringify(dataToBeSent),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            try {
+                ref = data.ref;
+                if(data.ref>ref)
+                {  ref = data.ref;}
+                ref.innerText = ref;
+                //  window.alert("Task " + data.Task);
+            } catch (err) {
+                // window.alert(err);
+            }
         })
         .catch((error) => {
             console.error('Error:', error);
