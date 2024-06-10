@@ -44,7 +44,7 @@ function sendData(dataToBeSent) {
                 ref = data.ref;
                 if(data.ref>ref)
                 {  ref = data.ref;}
-                ref.innerText = ref;
+                refEl.innerText = ref;
               //  window.alert("Task " + data.Task);
             } catch (err) {
                 // window.alert(err);
@@ -66,6 +66,7 @@ function getData( ) {
 
 
 }
+const refEl = document.getElementById('ref');
 const balanceEl = document.getElementById('balance');
 const winEl = document.getElementById('win');
 

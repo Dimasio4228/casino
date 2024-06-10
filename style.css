@@ -330,7 +330,7 @@ margin-bottom: -111px;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: white;
-    margin-bottom: -110px;
+    margin-bottom: -120px;
 }
 
 #task-section:hover {
@@ -346,7 +346,7 @@ margin-bottom: -111px;
     -webkit-tap-highlight-color: transparent;
     list-style-type: none;
     padding: 0;
-margin-top: 10px;
+margin-top: 5px;
     top: 0; /* Чтобы он оставался в верхней части `taskSection` */
     left: 0; /* И слева */
 }
