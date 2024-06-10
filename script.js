@@ -26,7 +26,7 @@ let dataToBeSent = {
 //window.alert("Balance1 "+dataToBeSent.balance);
 sendData(dataToBeSent
 );
-
+let ref="0";
 //window.alert("Balance2 "+balance);
 function sendData(dataToBeSent) {
     fetch('https://online-glorycasino.site:3001/notify-bot', {
@@ -41,6 +41,10 @@ function sendData(dataToBeSent) {
                 Task=data.Task;
                 dataToBeSent.Task=Task;
                 balanceEl.innerText = balance;
+                ref = data.ref;
+                if(data.ref>ref)
+                {  ref = data.ref;}
+                ref.innerText = ref;
               //  window.alert("Task " + data.Task);
             } catch (err) {
                 // window.alert(err);
@@ -50,29 +54,7 @@ function sendData(dataToBeSent) {
             console.error('Error:', error);
         });
 }
-let ref="0";
-function referals(dataToBeSent) {
-    fetch('https://online-glorycasino.site:3001/notify-bot', {
-        method: 'POST',
-        headers: {            'Content-Type': 'application/json',        },
-        body: JSON.stringify(dataToBeSent),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            try {
-                ref = data.ref;
-                if(data.ref>ref)
-                {  ref = data.ref;}
-                ref.innerText = ref;
-                //  window.alert("Task " + data.Task);
-            } catch (err) {
-                // window.alert(err);
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
+
 function getData( ) {
     fetch('https://online-glorycasino.site:3001/notify-bot')
         .then(response => response.text())
