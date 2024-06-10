@@ -365,8 +365,9 @@ autoSpinButton.addEventListener('click', () => {
 });
 const taskSection = document.getElementById('task-section');
 const taskList = document.getElementById('task-list');
-const agreeButton = document.getElementById('agreeButton');
 const taskText = document.getElementById('task-text');
+const agreeButton = document.getElementById('agreeButton');
+
 
 taskSection.addEventListener('click', () => {
     taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
