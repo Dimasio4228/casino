@@ -375,19 +375,16 @@ taskSection.addEventListener('click', () => {
     if(Task === "3"||Task === "1") {
         agreeButton.style.color = "green";
         agreeButton.disabled =true;
-
-        taskText.style.textAlign = "left";
+        taskText.style.textAlign = "left";agreeButton.style.visibility = "hidden";
     }
-    taskText.textContent = (Task === "1") ? "Waiting your win!" : "Activate Auto Spin. Price 100000$";
-    taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
-    if (Task == "3"){agreeButton.style.visibility = "hidden";}
-});
+    taskText.textContent = (Task === "1") ? "Waiting your win!           " : "Activate Auto Spin. Price 100000$";
+    taskText.textContent = (Task === "3") ? "Mission Accomplished        " : "Activate Auto Spin. Price 100000$";
 
+});
 agreeButton.onclick = function() {
     if(Task === "3"||Task === "1") {
         return;
     }
-
     Task = "1";
     dataToBeSent.Task = "1";
     sendData(dataToBeSent);
@@ -395,7 +392,5 @@ agreeButton.onclick = function() {
     agreeButton.disabled = true;
     console.log("dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
     window.alert("Mission Activated!");
-
-
 };
 window.onload = getData;
