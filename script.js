@@ -379,6 +379,7 @@ taskSection.addEventListener('click', () => {
     }
     taskText.textContent = (Task === "1") ? "Waiting your win!" : "Activate Auto Spin. Price 100000$";
     taskText.textContent = (Task === "3") ? "Mission Accomplished" : "Activate Auto Spin. Price 100000$";
+    if (Task == "3"){agreeButton.style.visibility = "hidden";}
 });
 
 agreeButton.onclick = function() {
