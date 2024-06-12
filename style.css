@@ -3,13 +3,23 @@
     padding: 0;
    // box-sizing: border-box; // optional, but handy
 }
-
+html, body {
+    margin-right: 10px;
+    height: 100%;
+    background-image: url('mon3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    justify-content: center; // Выравнивание по горизонтали
+    align-items: center; // Выравнивание по вертикали
+    flex-direction: column;
+    display: flex;
+}
 .buttons {
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Align items at the start */
     gap: 20px;
-    margin-bottom: 20px;
 }
 
 #spin-button,
@@ -49,43 +59,20 @@
     flex-direction: column;
     align-items: center;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Удобно для разработки */
-}
+body {
 
-body, html {
+    overflow: hidden;
+    /* Fix for iOS */
+    position: fixed;
     width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-image: url('mon3.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-.main-content {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    gap: 10px; /* Промежуток между элементами */
-}
 
-.balance-share-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%; /* Убедимся, что блок занимает всю ширину */
-    background: rgba(255, 255, 255, 0.8); /* Пример прозрачного фона */
-    padding: 10px;
-    border-radius: 10px;
-    gap: 10px; /* Пространство между элементами */
 }
 
 .slots {
-position: absolute;
+    position: relative;
     width: 273px;
     height: 237px;
     display: flex;
@@ -98,9 +85,9 @@ position: absolute;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin-right: -15px;
+    margin-top: 20px;
 }
-
 .slots .reel {
     position: relative;
     width: 79px;
@@ -112,18 +99,15 @@ position: absolute;
     background-position: 0 0;
     background-repeat: repeat-y;
     background-size: 100% auto;
+
 }
-
-@media (max-width: 600px) {
-    .balance-share-wrapper, .slots {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .balance-share-wrapper {
-        width: auto; /* Подстраиваем ширину под контент */
-        gap: 5px; /* Сокращаем промежуток */
-    }
+.balance-share-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    top: 11px;
+    margin-bottom: 5px;
 }
 .balance {
     position: fixed;
@@ -317,6 +301,7 @@ position: absolute;
     justify-content: center; /* Центрируем элементы по горизонтали */
     padding: 10px;
     box-sizing: border-box;
+    margin-bottom: 5px;
 }
 
 #task-section {
@@ -362,6 +347,7 @@ position: absolute;
     padding : 1px;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5px;
 
 }
 
