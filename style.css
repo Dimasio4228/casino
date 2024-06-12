@@ -324,13 +324,12 @@ position: fixed;
 #task-list {
     -webkit-tap-highlight-color: transparent;
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
     text-align: center;
     align-items: center;
     justify-content: space-between;
-    top: 0; /* Чтобы он оставался в верхней части `taskSection` */
-    left: 0; /* И слева */
-    bottom: 0;
+    position: fixed;
+    margin: 3px;
 
 }
 
