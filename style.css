@@ -352,7 +352,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     list-style-type: none;
     padding: 0;
-    margin-top: 10px;
+
 }
 
 #task-list li {
@@ -362,7 +362,7 @@ body {
     align-items: center;
     text-align: center;
     border: 1px solid #000000;
-    padding: 10px;
+
     margin: 10px 0;
     color: white;
 }
