@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -22,50 +21,39 @@
         <div class="reel"></div>
     </div>
     <div class="buttons">
-        <button id='spin-button'>Spin</button>
+        <button id="spin-button">Spin</button>
         <div class="auto-spin">
-            <button id='auto-spin-button'>Auto Spin</button>
-                     <p id="timer">06:00:00</p>
-        </div>
-
-    </div>
-    <div class="main-content">
-        <div id="task-section">
-            <h2>Tasks</h2>
-            <ol id="task-list" style="visibility: hidden;">
-                <li>
-                    <span id="task-text">Activate Auto Spin. Price 100000$</span>
-                    <button id="agreeButton" style="color: gold;" onclick="">Agree</button>
-                </li>
-            </ol>
-
-            <a href="https://t.me/SolanaSlot" class="btn-social">
-                <img src="telegramm.png" alt="Telegram" />
-            </a>
-            <a href="https://www.instagram.com/solanaslot/" class="btn-social">
-                <img src="instagram.png" alt="Instagram" />
-            </a>
-            <a href="https://x.com/SlotSolana/" class="btn-social">
-                <img src="tw.png" alt="Twitter" />
-            </a>
+            <button id="auto-spin-button">Auto Spin</button>
+            <p id="timer">06:00:00</p>
         </div>
     </div>
-
-    <script>
-        document.querySelector("#share-button").addEventListener("click", function() {
-            // Тут ваша переменная
-            let ref = tg.initDataUnsafe?.user.id
-
-            window.location.href = "https://telegram.me/share/url?url=https://t.me/CasinoSolana_bot?start=" + ref + "&text=Join us!";
-        });
-    </script>  </div>
+    <div id="task-section">
+        <h2>Tasks</h2>
+        <ol id="task-list" style="visibility: hidden;">
+            <li>
+                <span id="task-text">Activate Auto Spin. Price 100000$</span>
+                <button id="agreeButton" style="color: gold;" onclick="">Agree</button>
+            </li>
+        </ol>
+    </div>
+</div>
 <div id="coin-template" class="coin" hidden>
     💰 <!-- emoji-изображение монеты -->
 </div>
 <div id="myDiv"></div>
 
-
+<div class="footer-social">
+    <a href="https://t.me/SolanaSlot" class="btn-social">
+        <img src="telegramm.png" alt="Telegram" />
+    </a>
+    <a href="https://www.instagram.com/solanaslot/" class="btn-social">
+        <img src="instagram.png" alt="Instagram" />
+    </a>
+    <a href="https://x.com/SlotSolana/" class="btn-social">
+        <img src="tw.png" alt="Twitter" />
+    </a>
+</div>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
- <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
