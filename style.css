@@ -85,6 +85,7 @@ body, html {
 }
 
 .slots {
+
     width: 273px;
     height: 237px;
     display: flex;
@@ -101,6 +102,7 @@ body, html {
 }
 
 .slots .reel {
+    position: relative;
     width: 79px;
     height: 237px;
     border: 1px solid rgba(0, 0, 0, 0.3);
