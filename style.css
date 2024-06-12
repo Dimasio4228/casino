@@ -330,6 +330,7 @@ position: fixed;
     justify-content: space-between;
     top: 0; /* Чтобы он оставался в верхней части `taskSection` */
     left: 0; /* И слева */
+    bottom: 0;
 
 }
 
@@ -338,7 +339,7 @@ position: fixed;
     display: flex;
     text-align: center;
     border: 1px solid #000000;
-
+    bottom: 0;
     color: white;
 
 }
