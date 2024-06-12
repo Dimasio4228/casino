@@ -297,8 +297,8 @@ body {
 .button-container {
 
    /* Располагаем кнопки на 10px выше нижнего края */
-
-    bottom: 1px; /* Располагаем кнопки на 10px выше нижнего края */
+position: fixed;
+    bottom: 0px; /* Располагаем кнопки на 10px выше нижнего края */
     align-items: center;
 
     display: flex;
