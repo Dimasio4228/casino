@@ -185,14 +185,22 @@ body {
     opacity: 0;
     animation: flyAndFade 2s;
 }
-
+.footer-social {
+    position: fixed;
+    bottom: 13px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 .btn-social {
     -webkit-tap-highlight-color: transparent;
      height: auto !important;
     background:none;
     box-shadow: 0px -1px 5px rgba(0,0,0,0.1);
     padding : 10px;
-
+     margin-right: 10px;
 }
 .btn-social a {
     margin-right: 10px;
@@ -311,37 +319,22 @@ body {
     font-size: 12px;
     color: white;
 }
-
-.container {
+.button-container {
     display: flex;
-    flex-direction: column;
-    height: calc(100% - 50px); /* оставляем место для footer */
-    overflow-y: auto;
-    padding-bottom: 20px; /* добавляем отступ снизу для пространства между task-section и footer */
-    position: relative; /* делаем контейнер родителем для абсолютных дочерних элементов */
-}
-
-.footer-social {
-    position: fixed; /* фиксируем внизу экрана */
-    bottom: 15px; /* поднимаем на 15px от низа экрана */
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    justify-content: space-around;
+margin-bottom: -111px;
     padding: 10px;
-
-    z-index: 1000; /* поднимаем над содержимым страницы */
 }
-
-.btn-social {
-    margin: 0 10px; /* добавляем отступы между кнопками */
+#task-section{
+    margin-bottom: -9px;
 }
-
 #task-section {
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: white;
-    margin-bottom: 20px; /* отступ между задачами и нижним колонтитулом */
+    margin-bottom: -98px;
 }
+
 
 #task-section h2 {
     text-align: center;
@@ -352,7 +345,9 @@ body {
     -webkit-tap-highlight-color: transparent;
     list-style-type: none;
     padding: 0;
-
+margin-top: 10px;
+    top: 0; /* Чтобы он оставался в верхней части `taskSection` */
+    left: 0; /* И слева */
 }
 
 #task-list li {
@@ -362,14 +357,7 @@ body {
     align-items: center;
     text-align: center;
     border: 1px solid #000000;
-
+    padding: 10px;
     margin: 10px 0;
     color: white;
-}
-
-.footer-social img {
-    width: auto; /* позволяет изображению масштабироваться в соответствии с его высотой */
-    height: 45px;
-    border-radius: 12px; /* округляем углы изображений */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* добавляем тень */
 }
