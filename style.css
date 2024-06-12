@@ -307,12 +307,13 @@ body {
 }
 
 #task-section {
-    position: fixed;
+
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: white;
     margin-bottom: 2px;
-
+    align-items: center;
+    justify-content: center;
 }
 
 
