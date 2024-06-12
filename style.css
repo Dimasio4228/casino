@@ -74,8 +74,8 @@ body {
 
 .slots {
     position: relative;
-    width: 77.4vw; /* Примерно 273px от ширины 1080px */
-    height: 29.64vh;
+    width: 273px;
+    height: 237px;
     display: flex;
     justify-content: space-between;
     padding: 24px;
@@ -91,8 +91,8 @@ body {
 }
 .slots .reel {
     position: relative;
-    width: 25vw;
-    height: 29.64vh;
+    width: 79px;
+    height: 237px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
     overflow: hidden;
@@ -108,8 +108,6 @@ body {
     align-items: center;
     width: 100%;
     top: 11px;
-    padding: 10px;
-    margin-bottom: 10px; /
 }
 .balance {
     position: fixed;
