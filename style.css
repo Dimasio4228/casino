@@ -91,7 +91,7 @@ body {
 }
 .slots .reel {
     position: relative;
-    width: 9.88vw;
+    width: 25vw;
     height: 29.64vh;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
@@ -108,6 +108,8 @@ body {
     align-items: center;
     width: 100%;
     top: 11px;
+    padding: 10px;
+    margin-bottom: 10px; /
 }
 .balance {
     position: fixed;
