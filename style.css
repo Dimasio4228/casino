@@ -185,34 +185,7 @@ body {
     opacity: 0;
     animation: flyAndFade 2s;
 }
-.footer-social {
-    position: fixed;
-    bottom: 13px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-.btn-social {
-    -webkit-tap-highlight-color: transparent;
-     height: auto !important;
-    background:none;
-    box-shadow: 0px -1px 5px rgba(0,0,0,0.1);
-    padding : 10px;
-     margin-right: 10px;
-}
-.btn-social a {
-    margin-right: 10px;
 
-
-}
-.btn-social img {
-    width: auto;     /* Позволяет изображению масштабироваться в соответствии с его высотой. */
-    height: 45px;
-    border-radius: 12px;  /* Округляет углы изображений */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляет тень */
-}
 
 /* CSS-анимация */
 @keyframes flyAndFade {
@@ -332,7 +305,7 @@ margin-bottom: -111px;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: white;
-    margin-bottom: -98px;
+
 }
 
 
@@ -345,7 +318,7 @@ margin-bottom: -111px;
     -webkit-tap-highlight-color: transparent;
     list-style-type: none;
     padding: 0;
-margin-top: 10px;
+
     top: 0; /* Чтобы он оставался в верхней части `taskSection` */
     left: 0; /* И слева */
 }
@@ -360,4 +333,25 @@ margin-top: 10px;
     padding: 10px;
     margin: 10px 0;
     color: white;
+}
+
+.btn-social {
+    -webkit-tap-highlight-color: transparent;
+    height: auto !important;
+    background:none;
+    box-shadow: 0px -1px 5px rgba(0,0,0,0.1);
+    padding : 10px;
+    margin-right: 10px;
+
+}
+.btn-social a {
+    margin-right: 10px;
+
+
+}
+.btn-social img {
+    width: auto;     /* Позволяет изображению масштабироваться в соответствии с его высотой. */
+    height: 45px;
+    border-radius: 12px;  /* Округляет углы изображений */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляет тень */
 }
