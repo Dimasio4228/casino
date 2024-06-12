@@ -362,3 +362,9 @@ margin-top: 10px;
     margin: 10px 0;
     color: white;
 }
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
