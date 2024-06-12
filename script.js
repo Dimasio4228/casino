@@ -371,7 +371,7 @@ const agreeButton = document.getElementById('agreeButton');
 
 taskSection.addEventListener('click', () => {
     taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
-
+    taskSection.style.textAlign="center";
     if(Task === "3"||Task === "1") {
         agreeButton.style.color = "green";
         agreeButton.disabled =true;

@@ -295,38 +295,38 @@ body {
     color: white;
 }
 .button-container {
+
    /* Располагаем кнопки на 10px выше нижнего края */
     position: fixed; /* Фиксируем кнопки внизу экрана */
-    bottom: 10px; /* Располагаем кнопки на 10px выше нижнего края */
+    bottom: 1px; /* Располагаем кнопки на 10px выше нижнего края */
     left: 0; /* Располагаем кнопки в левой части экрана */
     width: 100%; /* Занимаем всю ширину экрана */
     display: flex;
     justify-content: center; /* Центрируем элементы по горизонтали */
     padding: 20px;
+    hight: 40px;
 
 }
 
 #task-section {
-
+position: -ms-device-fixed;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: white;
     margin-bottom: 2px;
-    align-items: center;
-    justify-content: center;
-}
 
-
-#task-section h2 {
+    bottom:  1px;
     text-align: center;
-    color: white;
 }
+
 
 #task-list {
     -webkit-tap-highlight-color: transparent;
     list-style-type: none;
     padding: 0;
-
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
     top: 0; /* Чтобы он оставался в верхней части `taskSection` */
     left: 0; /* И слева */
 }
@@ -334,13 +334,13 @@ body {
 #task-list li {
     -webkit-tap-highlight-color: transparent;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     text-align: center;
     border: 1px solid #000000;
     padding: 10px;
     margin: 10px 0;
     color: white;
+    top: 2px;
+    left: 0;
 }
 
 .btn-social {
@@ -375,7 +375,7 @@ body, html {
     flex-direction: column;
     align-items: center;
 
-    gap: 20px;
+    gap: 10px;
     overflow: auto;
     height: 100%;
     width: 100%;
