@@ -72,7 +72,7 @@ body {
 }
 
 .slots {
-    position: relative;
+    position: -ms-device-fixed;
     width: 273px;
     height: 237px;
     display: flex;
