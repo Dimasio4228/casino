@@ -76,7 +76,7 @@ body {
     width: 273px;
     height: 237px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 24px;
     background: linear-gradient(45deg, palegoldenrod 0%, goldenrod 100%);
     border-top: 1px solid rgba(255, 255, 255, 0.6);
