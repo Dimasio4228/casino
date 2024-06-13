@@ -364,10 +364,3 @@ position: fixed;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Добавляет тень */
 }
 
-
-.container {
-    /* Добавляем отступ снизу для пространства между main-content и button-container */
-
-    flex-direction: column;
-
-}
