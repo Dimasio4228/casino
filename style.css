@@ -368,11 +368,6 @@ position: fixed;
 .container {
     /* Добавляем отступ снизу для пространства между main-content и button-container */
 
-    display: flex;
     flex-direction: column;
-    align-items: center;
 
-
-    height: 100%;
-    width: 100%;
 }
