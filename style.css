@@ -76,7 +76,7 @@ body {
     width: 273px;
     height: 237px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 24px;
     background: linear-gradient(45deg, palegoldenrod 0%, goldenrod 100%);
     border-top: 1px solid rgba(255, 255, 255, 0.6);
@@ -111,7 +111,7 @@ body {
 }
 .balance {
     position: fixed;
-    left: 13px;
+    left: 3px;
     top: 11px;
     color: goldenrod; /* Золотой цвет текста */
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Тень текста: отступ вправо, отступ вниз, размытие, цвет*/
