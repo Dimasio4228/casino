@@ -372,13 +372,13 @@ const agreeButton = document.getElementById('agreeButton');
 taskSection.addEventListener('click', () => {
     taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
     taskSection.style.textAlign="center";
-    if(Task === "3"||Task === "1") {
+    if(Task == "3"||Task == "1") {
         agreeButton.style.color = "green";
         agreeButton.disabled =true;
         taskText.style.textAlign = "left";agreeButton.style.visibility = "hidden";
     }
-    taskText.textContent = (Task === "1") ? "Waiting your win!           " : "Activate Auto Spin. Price 100000$";
-    taskText.textContent = (Task === "3") ? "Mission Accomplished        " : "Activate Auto Spin. Price 100000$";
+    taskText.textContent = (Task == "1") ? "Waiting your win!           " : "Activate Auto Spin. Price 100000$";
+    taskText.textContent = (Task == "3") ? "Mission Accomplished        " : "Activate Auto Spin. Price 100000$";
 
 });
 agreeButton.onclick = function() {
