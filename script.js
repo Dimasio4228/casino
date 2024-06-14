@@ -318,9 +318,10 @@ let spin=false;
 autoSpinButton.addEventListener('click', () => {
     console.log(" dataToBeSent.Task Auto "+dataToBeSent.Task+ "Task"+Task);
     if (Task=="0")
-    { return;}
+    {     window.alert("Press Tasks an push Agree Button!!");
+        return;}
     if(Task=="1"&&balance >= 100000) {
-        balance =balance -100000;
+        balance =balance -99000;
         dataToBeSent.balance=balance;
         dataToBeSent.Task="3";
         Task="3";
@@ -370,6 +371,7 @@ const agreeButton = document.getElementById('agreeButton');
 
 
 taskSection.addEventListener('click', () => {
+
     taskList.style.visibility = (taskList.style.visibility === "hidden") ? "visible" : "hidden";
     taskSection.style.textAlign="center";
     if(Task == "3"||Task == "1") {
