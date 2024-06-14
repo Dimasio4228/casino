@@ -337,7 +337,9 @@ position: fixed;
     text-align: center;
     align-items: center;
 }
-
+#task-text {
+    margin-right: 20px; /* Отступ между текстом и кнопкой */
+}
 .btn-social {
     -webkit-tap-highlight-color: transparent;
     height: auto !important;
