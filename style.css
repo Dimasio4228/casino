@@ -41,7 +41,7 @@ html, body {
     flex: 0 0 auto;
 }
 #auto-spin-button {
-    margin-right: 10px; /* сдвигает Auto Spin на 20px влево */
+    margin-right: 20px; /* сдвигает Auto Spin на 20px влево */
 }
 
 #timer {
@@ -366,11 +366,9 @@ body, html {
 
 .main-content {
     /* Добавляем отступ снизу для пространства между main-content и button-container */
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 5px;
     overflow: auto;
     height: 100%;
