@@ -313,14 +313,9 @@ position: fixed;
     -webkit-tap-highlight-color: transparent;
     cursor: pointer;
     color: white;
-
     bottom: 0px;
-
     text-align: center;
-
 }
-
-
 #task-list {
     -webkit-tap-highlight-color: transparent;
     list-style-type: none;
@@ -330,7 +325,6 @@ position: fixed;
     justify-content: space-between;
     position: fixed;
     margin: 3px;
-
 }
 
 #task-list li {
@@ -340,7 +334,9 @@ position: fixed;
     border: 1px solid #000000;
     bottom: 0;
     color: white;
-
+    position: fixed;
+    text-align: center;
+    align-items: center;
 }
 
 .btn-social {
