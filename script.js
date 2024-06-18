@@ -1,4 +1,4 @@
-
+import {check} from './state.js';
 
 let tg = window.Telegram.WebApp;
 tg.ready();
@@ -142,7 +142,7 @@ const roll = (reel, offset = 0, target = null) => {
 };
 let lossCount = 0; // Сч
 
- let check=true;
+//let check=true;
 
 function rollAll()  {
     check=false;
