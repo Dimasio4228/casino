@@ -1,4 +1,3 @@
-
 const {rollAll}=require('./rollAll');
 
 let tg = window.Telegram.WebApp;
@@ -72,7 +71,23 @@ function getData( ) {
 const refEl = document.getElementById('ref');
 const balanceEl = document.getElementById('balance');
 const winEl = document.getElementById('win');
-
+module.exports = {
+    check,
+    lossCount,
+    indexes,
+    num_icons,
+    balance,
+    dataToBeSent,
+    uid,
+    username,
+    Task,
+    spin,
+    winEl,
+    balanceEl,
+    spinButton,
+    sendData,
+    roll
+};
 // Mapping of indexes to icons: start from banana in middle of initial position and then upwards
     //iconMap = ["lcoin", "goldcoin", "Usdt", "Bluecoin", "Ton", "Sol", "Riple", "BTC", "Eth"],
 // Width of the icons
@@ -286,21 +301,5 @@ agreeButton.onclick = function() {
     console.log("dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
     window.alert("Mission Activated!");
 };
-module.exports = {
-    check,
-    lossCount,
-    indexes,
-    num_icons,
-    balance,
-    dataToBeSent,
-    uid,
-    username,
-    Task,
-    spin,
-    winEl,
-    balanceEl,
-    spinButton,
-    sendData,
-    roll
-};
+
 window.onload = getData;
