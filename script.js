@@ -1,4 +1,4 @@
-const {rollAll}=require('./rollAll');
+
 
 let tg = window.Telegram.WebApp;
 tg.ready();
