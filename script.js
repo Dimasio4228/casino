@@ -1,4 +1,4 @@
-//const { restoreTimerState, sendDataToServer } = require('./timer');
+
 const {rollAll}=require('./rollAll');
 
 let tg = window.Telegram.WebApp;
