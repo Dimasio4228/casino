@@ -286,4 +286,21 @@ agreeButton.onclick = function() {
     console.log("dataToBeSent.Task Button Agree "+dataToBeSent.Task+ " Task "+Task);
     window.alert("Mission Activated!");
 };
+module.exports = {
+    check,
+    lossCount,
+    indexes,
+    num_icons,
+    balance,
+    dataToBeSent,
+    uid,
+    username,
+    Task,
+    spin,
+    winEl,
+    balanceEl,
+    spinButton,
+    sendData,
+    roll
+};
 window.onload = getData;
