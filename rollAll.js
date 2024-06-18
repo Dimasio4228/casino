@@ -1,6 +1,17 @@
 const {createCoin} = require("./coin");
- let {check,lossCount,roll,indexes,num_icons,balance,dataToBeSent,uid,
-     username,Task,sendData,winEl,balanceEl,spinButton,spin}=require("./script");
+ let {check,lossCount,num_icons,balance,dataToBeSent,uid,
+     username,Task,sendData,winEl,
+     balanceEl,spinButton,spin}=require("./state");
+icon_width = 79,
+// Height of one icon in the strip
+    icon_height = 79,
+// Number of icons in the strip
+    num_icons = 9,
+// Max-speed in ms for animating one icon down
+    time_per_icon = 100;
+    indexes = [0, 0, 0];
+let lossCount = 0; // Сч
+let previousSpinResult = null;
 function rollAll()  {
     check=false;
     const reelsList = document.querySelectorAll('.slots > .reel');
@@ -85,4 +96,55 @@ function rollAll()  {
             check= true;
         });
 }
+
+
+const roll = (reel, offset = 0, target = null) => {
+    let delta = (offset + 2) * num_icons + Math.round(Math.random() * num_icons);
+
+    // If target is not null, we force the delta to be the target value.
+    if (target !== null) delta = target + num_icons * (2 + Math.round(Math.random()));
+
+    if (reel.id === 'reel1') {
+        previousSpinResult = delta % num_icons;
+    }
+
+    const style = getComputedStyle(reel),
+        // Current background position
+        backgroundPositionY = parseFloat(style["background-position-y"]);
+    //  debugEl.textContent = target;
+    // Rigged?
+    if (target) {
+        // calculate delta to target
+        const currentIndex = backgroundPositionY / icon_height;
+        delta = target - currentIndex + (offset + 2) * num_icons;
+    }
+    return new Promise((resolve) => {
+
+        const style = getComputedStyle(reel),
+            // Current background position
+            backgroundPositionY = parseFloat(style["background-position-y"]),
+            // Target background position
+            targetBackgroundPositionY = backgroundPositionY + delta * icon_height,
+            // Normalized background position, for reset
+            normTargetBackgroundPositionY = targetBackgroundPositionY % (num_icons * icon_height);
+
+        // Delay animation with timeout, for some reason a delay in the animation property causes stutter
+        setTimeout(() => {
+            // Set transition properties ==> https://cubic-bezier.com/#.41,-0.01,.63,1.09
+            reel.style.transition = `background-position-y ${(8 + delta) * time_per_icon}ms cubic-bezier(.41,-0.01,.63,1.09)`;
+            // Set background position
+            reel.style.backgroundPositionY = `${backgroundPositionY + delta * icon_height}px`;
+        }, offset * 150);
+
+        // After animation
+        setTimeout(() => {
+            // Reset position, so that it doesn't get higher without limit
+            reel.style.transition = `none`;
+            reel.style.backgroundPositionY = `${normTargetBackgroundPositionY}px`;
+            // Resolve this promise
+            resolve(delta % num_icons);
+        }, (8 + delta) * time_per_icon + offset * 150);
+
+    });
+};
 module.exports = {rollAll};
