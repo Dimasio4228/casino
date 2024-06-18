@@ -142,7 +142,7 @@ const roll = (reel, offset = 0, target = null) => {
 };
 let lossCount = 0; // Сч
 
-//let check=true;
+ let check=true;
 
 function rollAll()  {
     check=false;
