@@ -1,4 +1,4 @@
-import {check} from './state.js';
+
 
 let tg = window.Telegram.WebApp;
 tg.ready();
