@@ -1,4 +1,4 @@
-const { restoreTimerState, sendDataToServer } = require('./timer');
+//const { restoreTimerState, sendDataToServer } = require('./timer');
 const {rollAll}=require('./rollAll');
 
 let tg = window.Telegram.WebApp;
@@ -140,15 +140,8 @@ const roll = (reel, offset = 0, target = null) => {
     });
 };
 let lossCount = 0; // Сч
-
 let check=true;
-
-
-
-// Kickoff
-//setTimeout(rollAll, 1000);
-
-const spinButton = document.getElementById('spin-button');
+ const spinButton = document.getElementById('spin-button');
 
 // Назначить обработчик события 'click'
 spinButton.addEventListener('click', () => {
