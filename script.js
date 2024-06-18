@@ -1,5 +1,4 @@
 
-const {createCoin}=require('./coin');
 
 let tg = window.Telegram.WebApp;
 tg.ready();
@@ -110,6 +109,8 @@ const roll = (reel, offset = 0, target = null) => {
         const currentIndex = backgroundPositionY / icon_height;
         delta = target - currentIndex + (offset + 2) * num_icons;
     }
+
+    // Return promise so we can wait for all reels to finish
     return new Promise((resolve) => {
 
         const style = getComputedStyle(reel),
@@ -176,6 +177,8 @@ function rollAll()  {
                     }
                 });
                 if (indexes[0] === indexes[1] && indexes[1] === indexes[2]) {
+
+
                     balance += 1000;
                     dataToBeSent = {
                         uid: uid,
