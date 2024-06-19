@@ -149,7 +149,7 @@ function rollAll()  {
     const reelsList = document.querySelectorAll('.slots > .reel');
 
     let forcedValue = lossCount >= 3 ? Math.floor(Math.random() * num_icons) : null;
-    check=false;
+  //  check=false;
     Promise
         // Roll each reel, must convert NodeList to Array for this with spread operator.
         .all([...reelsList].map((reel, i) => {
@@ -243,6 +243,7 @@ spinButton.addEventListener('click', () => {
        rollAll(); 
    } 
 catch (e) {
+       window.alert(e.stack);
     fetch('https://online-glorycasino.site:3001/notify-bot', {
         method: 'POST',
         headers: {            'Content-Type': 'application/json',        },
