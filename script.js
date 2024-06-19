@@ -241,21 +241,29 @@ spinButton.addEventListener('click', () => {
     spinButton.style.visibility = 'hidden';
    try {
        rollAll(); 
-   } 
-catch (e) {
-       window.alert(e.stack);
-    fetch('https://online-glorycasino.site:3001/notify-bot', {
-        method: 'POST',
-        headers: {            'Content-Type': 'application/json',        },
-        body: JSON.stringify({error:e, erorr_stack:e.stack}),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-                    })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
+   }
+   catch (e) {
+       console.log("Error: " + e.stack);  // Лог ошибки в консоль
+
+       // Отправка ошибки на сервер
+       fetch('https://online-glorycasino.site:3001/notify-bot', {
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({
+               error: e.message,        // Сообщение об ошибке
+               error_stack: e.stack     // Стек ошибки
+           })
+       })
+           .then((response) => response.json())
+           .then((data) => {
+               // Обработка ответа сервера, если необходимо
+           })
+           .catch((error) => {
+               console.error('Error during error reporting:', error);
+           });
+   }
 });
 
 // Функция для создания монет
