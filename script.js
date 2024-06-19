@@ -1,4 +1,4 @@
-//
+//import {check} from './state.js';
 
 let tg = window.Telegram.WebApp;
 tg.ready();
@@ -142,7 +142,7 @@ const roll = (reel, offset = 0, target = null) => {
 };
 let lossCount = 0; // Сч
 
- let check=true;
+//let check=true;
 
 function rollAll()  {
     check=false;
@@ -220,8 +220,8 @@ function rollAll()  {
                 };
                 sendData(dataToBeSent
                 );
-                winEl.classList.add('show');
-                setTimeout(() => winEl.classList.remove('show'), 2000);
+               // winEl.classList.add('show');
+             //   setTimeout(() => winEl.classList.remove('show'), 2000);
                 balanceEl.innerText = balance;
             }
             // setTimeout(rollAll, 3000);
@@ -295,7 +295,7 @@ let spin=false;
 autoSpinButton.addEventListener('click', () => {
     console.log(" dataToBeSent.Task Auto "+dataToBeSent.Task+ "Task"+Task);
     if (Task=="0")
-    {     window.alert("Press Tasks an push Agree Button!!");
+    {     window.alert("Press Tasks and push Agree Button!!");
         return;}
     if(Task=="1"&&balance >= 100000) {
         balance =balance -99000;
