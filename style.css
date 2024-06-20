@@ -91,8 +91,8 @@ body {
 .slots .reel {
     position: relative;
     width: 79px;
-    height: 237px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    height: 238px;
+    border: 0px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
     overflow: hidden;
     background-image: url('icons.gif');
@@ -276,13 +276,14 @@ body {
 
 .win {
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     font-size: 48px;
     transform: translate(-50%, -50%);
     color: red;
     display: none;
     animation: 1s blinker linear infinite;
+    z-index: 9999;
 }
 .win.show {
     display: block;
